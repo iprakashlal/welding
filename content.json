@@ -1,0 +1,540 @@
+{
+  "theme": {
+    "bg": "#F6F9FF",
+    "surface": "#FFFFFF",
+    "deep": "#0B1F44",
+    "text": "#0B1F44",
+    "soft": "#556483",
+    "line": "#DCE5F5",
+    "c1": "#2563EB",
+    "c2": "#7C3AED",
+    "c3": "#10B981",
+    "fontDisplay": "Lexend",
+    "fontBody": "Inter",
+    "radius": 12,
+    "preset": "biz-nimbus",
+    "layout": "split",
+    "nav": "float",
+    "cards": "glass",
+    "buttons": "pill",
+    "heading": "normal",
+    "shead": "label",
+    "pattern": "dots",
+    "width": "normal",
+    "motionStyle": "rise",
+    "bands": "soft",
+    "heroArt": "default",
+    "cursor": "none",
+    "loader": "none",
+    "textfx": "none",
+    "hoverfx": "none",
+    "scrollfx": "none",
+    "overlay": "none",
+    "introBg": "#0B1F44",
+    "introFg": "#FFFFFF",
+    "introTitle": "",
+    "introFont": "display",
+    "introCase": "upper",
+    "logoRadius": 22,
+    "scrollEase": "light",
+    "lineBreaks": "typed"
+  },
+  "cms": {
+    "adminPage": "admin"
+  },
+  "brand": {
+    "name": "XYZ welding",
+    "tagline": "Welding Solutions You Can Trust",
+    "logo": null,
+    "showName": true
+  },
+  "site": {
+    "multiPage": false,
+    "pageLabels": {
+      "home": "Home",
+      "services": "Services",
+      "work": "Work",
+      "about": "About",
+      "contact": "Contact"
+    }
+  },
+  "nav": {
+    "cta": "Book a call",
+    "ctaTarget": "contact"
+  },
+  "sections": [
+    {
+      "id": "hero",
+      "label": "Home",
+      "show": true,
+      "inNav": false
+    },
+    {
+      "id": "clients",
+      "label": "Clients",
+      "show": false,
+      "inNav": false
+    },
+    {
+      "id": "services",
+      "label": "Services",
+      "show": true,
+      "inNav": true
+    },
+    {
+      "id": "stats",
+      "label": "Numbers",
+      "show": true,
+      "inNav": false
+    },
+    {
+      "id": "work",
+      "label": "Work",
+      "show": true,
+      "inNav": true
+    },
+    {
+      "id": "about",
+      "label": "About",
+      "show": true,
+      "inNav": true
+    },
+    {
+      "id": "process",
+      "label": "Process",
+      "show": true,
+      "inNav": false
+    },
+    {
+      "id": "team",
+      "label": "Team",
+      "show": true,
+      "inNav": true
+    },
+    {
+      "id": "testimonials",
+      "label": "Testimonials",
+      "show": true,
+      "inNav": false
+    },
+    {
+      "id": "pricing",
+      "label": "Pricing",
+      "show": true,
+      "inNav": false
+    },
+    {
+      "id": "faq",
+      "label": "FAQ",
+      "show": true,
+      "inNav": false
+    },
+    {
+      "id": "cta",
+      "label": "Call to action",
+      "show": true,
+      "inNav": false
+    },
+    {
+      "id": "contact",
+      "label": "Contact",
+      "show": true,
+      "inNav": true
+    }
+  ],
+  "hero": {
+    "eyebrow": "Expert Welding Services",
+    "title": "Welcome to XYZ Welding",
+    "lede": "Your partner for high-quality welding solutions",
+    "ctaPrimary": "Explore Our Services",
+    "ctaPrimaryTarget": "contact",
+    "ctaSecondary": "See our work",
+    "ctaSecondaryTarget": "work",
+    "image": null,
+    "badges": [
+      "ISO 27001 certified",
+      "120+ projects delivered",
+      "Offices in Mumbai & London"
+    ]
+  },
+  "clients": {
+    "title": "Trusted by teams at",
+    "logos": [
+      {
+        "name": "Arcadia Bank",
+        "logo": null
+      },
+      {
+        "name": "Helix Health",
+        "logo": null
+      },
+      {
+        "name": "Orbit Insurance",
+        "logo": null
+      },
+      {
+        "name": "Lumen Retail",
+        "logo": null
+      },
+      {
+        "name": "Stratus Cloud",
+        "logo": null
+      },
+      {
+        "name": "Vertex Labs",
+        "logo": null
+      }
+    ]
+  },
+  "services": {
+    "eyebrow": "What we do",
+    "title": "Our Services",
+    "lede": "We offer a range of welding services to meet your needs",
+    "items": [
+      {
+        "icon": "compass",
+        "title": "Welding Services",
+        "body": "Our team of experts provides high-quality welding services",
+        "points": []
+      },
+      {
+        "icon": "layers",
+        "title": "Product Catalogue",
+        "body": "Browse our range of welding products and accessories",
+        "points": []
+      },
+      {
+        "icon": "code",
+        "title": "Warranty Check",
+        "body": "Check the warranty status of your welding equipment",
+        "points": []
+      },
+      {
+        "icon": "chart",
+        "title": "Request Maintenance",
+        "body": "Schedule maintenance for your welding equipment",
+        "points": []
+      },
+      {
+        "icon": "shield",
+        "title": "Custom Welding Solutions",
+        "body": "We can tailor our services to meet your specific needs",
+        "points": []
+      },
+      {
+        "icon": "people",
+        "title": "Consultation",
+        "body": "Get expert advice on your welding projects",
+        "points": []
+      }
+    ]
+  },
+  "about": {
+    "eyebrow": "About us",
+    "title": "About Us",
+    "body": "At XYZ Welding, we pride ourselves on delivering exceptional welding services and products to our clients.",
+    "image": null,
+    "mission": "To provide innovative welding solutions that meet our clients' needs",
+    "vision": "To be a leading provider of welding services and products",
+    "values": [
+      {
+        "title": "Quality",
+        "body": "We strive for excellence in everything we do"
+      },
+      {
+        "title": "Integrity",
+        "body": "We act with honesty and transparency"
+      },
+      {
+        "title": "Customer Focus",
+        "body": "We put our clients at the heart of our business"
+      },
+      {
+        "title": "Innovation",
+        "body": "We continuously improve and innovate our services and products"
+      }
+    ]
+  },
+  "stats": {
+    "items": [
+      {
+        "value": "12+",
+        "label": "Years in business"
+      },
+      {
+        "value": "120+",
+        "label": "Projects delivered"
+      },
+      {
+        "value": "45",
+        "label": "Specialists"
+      },
+      {
+        "value": "98%",
+        "label": "Clients who return"
+      }
+    ]
+  },
+  "work": {
+    "eyebrow": "Case studies",
+    "title": "Selected work",
+    "lede": "A few recent engagements. More on request, under NDA.",
+    "items": [
+      {
+        "title": "Digital onboarding for a retail bank",
+        "client": "Arcadia Bank",
+        "sector": "Banking",
+        "summary": "Rebuilt account opening from a 40-minute branch visit into a 7-minute mobile journey.",
+        "result": "3.2× more accounts opened online",
+        "image": null,
+        "url": ""
+      },
+      {
+        "title": "Claims portal for 40,000 agents",
+        "client": "Orbit Insurance",
+        "sector": "Insurance",
+        "summary": "Replaced four legacy tools with one portal for agents, adjusters and partners.",
+        "result": "Claim processing time down 46%",
+        "image": null,
+        "url": ""
+      },
+      {
+        "title": "Patient app and care dashboard",
+        "client": "Helix Health",
+        "sector": "Healthcare",
+        "summary": "A patient app linked to a clinician dashboard for remote monitoring.",
+        "result": "28% fewer missed appointments",
+        "image": null,
+        "url": ""
+      }
+    ]
+  },
+  "process": {
+    "eyebrow": "How we work",
+    "title": "A clear path from first call to launch",
+    "steps": [
+      {
+        "title": "Assessment",
+        "body": "We assess your welding needs and provide a quote"
+      },
+      {
+        "title": "Scheduling",
+        "body": "We schedule a time that suits you for our services"
+      },
+      {
+        "title": "Welding",
+        "body": "Our team of experts carries out the welding work"
+      },
+      {
+        "title": "Quality Control",
+        "body": "We ensure that our work meets the highest standards"
+      }
+    ]
+  },
+  "team": {
+    "eyebrow": "Leadership",
+    "title": "The people you'll work with",
+    "lede": "Senior leads on every project, from first call to launch.",
+    "members": [
+      {
+        "name": "Ananya Rao",
+        "role": "Managing Partner",
+        "photo": null,
+        "linkedin": ""
+      },
+      {
+        "name": "David Mercer",
+        "role": "Head of Design",
+        "photo": null,
+        "linkedin": ""
+      },
+      {
+        "name": "Karan Mehta",
+        "role": "Head of Engineering",
+        "photo": null,
+        "linkedin": ""
+      },
+      {
+        "name": "Sara Lindqvist",
+        "role": "Head of Strategy",
+        "photo": null,
+        "linkedin": ""
+      }
+    ]
+  },
+  "testimonials": {
+    "eyebrow": "Client stories",
+    "title": "What clients say",
+    "items": [
+      {
+        "quote": "Northbeam took a project three vendors had failed at and shipped it in six months. They're the first team I call now.",
+        "name": "Priya Nair",
+        "role": "Chief Digital Officer",
+        "company": "Arcadia Bank"
+      },
+      {
+        "quote": "Senior people, honest estimates and no surprises. Exactly what a regulated business needs from a partner.",
+        "name": "James Whitfield",
+        "role": "COO",
+        "company": "Orbit Insurance"
+      }
+    ]
+  },
+  "pricing": {
+    "eyebrow": "Engagements",
+    "title": "Ways to work with us",
+    "lede": "Fixed scopes for a clear start; retainers when you want a team on call.",
+    "plans": [],
+    "note": "Prices exclude GST. Every engagement starts with a free 30-minute call."
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Questions we're often asked",
+    "items": [
+      {
+        "q": "What services do you offer?",
+        "a": "We offer a range of welding services, including welding, product catalogue, warranty check, and request maintenance"
+      },
+      {
+        "q": "How do I schedule a service?",
+        "a": "You can contact us to schedule a service at a time that suits you"
+      },
+      {
+        "q": "Do you provide custom welding solutions?",
+        "a": "Yes, we can tailor our services to meet your specific needs"
+      },
+      {
+        "q": "What is your warranty policy?",
+        "a": "We provide a warranty for our welding equipment and services"
+      },
+      {
+        "q": "How do I request maintenance?",
+        "a": "You can contact us to schedule maintenance for your welding equipment"
+      },
+      {
+        "q": "Do you offer consultation services?",
+        "a": "Yes, we provide expert advice on welding projects"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Contact Us",
+    "body": "Get in touch with us to discuss your welding needs",
+    "button": "Start a conversation",
+    "target": "contact"
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Let's talk about your project",
+    "lede": "Send a few details and we'll set up a 30-minute call. No obligation.",
+    "email": "hello@northbeam.example",
+    "phone": "+91 22 4000 1234",
+    "whatsapp": "",
+    "address": "Level 9, One BKC\nBandra Kurla Complex, Mumbai 400051",
+    "hours": "Mon–Fri, 9:30 am – 6:30 pm IST",
+    "mapUrl": "",
+    "linkedin": "https://www.linkedin.com/",
+    "form": {
+      "enabled": true,
+      "title": "Tell us about your project",
+      "askPhone": true,
+      "askCompany": true,
+      "askService": true,
+      "askBudget": true,
+      "budgets": [
+        "Under ₹5L",
+        "₹5L – ₹25L",
+        "₹25L – ₹1Cr",
+        "Above ₹1Cr"
+      ],
+      "submit": "Send enquiry",
+      "success": "Thank you. We've received your enquiry and will reply within one working day.",
+      "consent": "I agree to be contacted about this enquiry.",
+      "saveTo": "auto",
+      "fileUrl": "",
+      "sbUrl": "",
+      "sbKey": "",
+      "site": ""
+    }
+  },
+  "footer": {
+    "text": "Copyright 2026 XYZ Welding. All rights reserved.",
+    "legal": "© {year} XYZ welding LLP. All rights reserved.",
+    "links": [
+      {
+        "label": "Privacy",
+        "url": ""
+      },
+      {
+        "label": "Terms",
+        "url": ""
+      }
+    ]
+  },
+  "seo": {
+    "title": "XYZ Welding - Expert Welding Services and Products",
+    "description": "XYZ Welding provides high-quality welding services and products to meet your needs",
+    "titlePattern": "{page} · {site}",
+    "keywords": "",
+    "author": "",
+    "image": null,
+    "siteUrl": "",
+    "themeColor": "",
+    "noindex": false,
+    "googleVerification": "",
+    "meta": []
+  },
+  "poweredBy": {
+    "show": true
+  },
+  "warranty": {
+    "enabled": false,
+    "title": "Warranty & service status",
+    "intro": "Enter the number on your invoice or product to see its warranty and service status.",
+    "navLabel": "Warranty",
+    "inNav": true,
+    "inFooter": true,
+    "label": "Serial or invoice number",
+    "placeholder": "",
+    "verify": "none",
+    "verifyLabel": "",
+    "button": "Check status",
+    "notFound": "We couldn't find that number. Check it and try again.",
+    "help": "Need help? Contact us and we'll look it up.",
+    "showWarranty": true,
+    "showHistory": true,
+    "showCustomer": false,
+    "statuses": [
+      {
+        "id": "registered",
+        "label": "Registered",
+        "tone": "info"
+      },
+      {
+        "id": "received",
+        "label": "Received for service",
+        "tone": "progress"
+      },
+      {
+        "id": "in-repair",
+        "label": "In repair",
+        "tone": "progress"
+      },
+      {
+        "id": "ready",
+        "label": "Ready for pickup",
+        "tone": "ok"
+      },
+      {
+        "id": "delivered",
+        "label": "Delivered",
+        "tone": "ok"
+      },
+      {
+        "id": "not-covered",
+        "label": "Not covered",
+        "tone": "bad"
+      }
+    ]
+  }
+}
