@@ -1,9 +1,9 @@
 {
   "template": "business",
   "name": "XYZ Welding",
-  "version": 2,
+  "version": 3,
   "admin": "admin.html",
-  "exportedAt": "2026-11-14T06:35:12.393Z",
+  "exportedAt": "2026-11-14T06:38:04.937Z",
   "generator": "Site Studio",
   "studioBuild": {
     "id": "58df70a",

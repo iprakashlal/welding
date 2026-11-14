@@ -150,7 +150,9 @@
     "ctaPrimaryTarget": "contact",
     "ctaSecondary": "See our work",
     "ctaSecondaryTarget": "work",
-    "image": null,
+    "image": {
+      "path": "assets/uploads/1794638089079-welding.png"
+    },
     "badges": [
       "ISO 27001 certified",
       "120+ projects delivered",
