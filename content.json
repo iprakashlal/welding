@@ -1,28 +1,28 @@
 {
   "theme": {
-    "bg": "#F6F9FF",
-    "surface": "#FFFFFF",
-    "deep": "#0B1F44",
-    "text": "#0B1F44",
-    "soft": "#556483",
-    "line": "#DCE5F5",
-    "c1": "#2563EB",
-    "c2": "#7C3AED",
-    "c3": "#10B981",
-    "fontDisplay": "Lexend",
-    "fontBody": "Inter",
-    "radius": 12,
-    "preset": "biz-nimbus",
-    "layout": "split",
-    "nav": "float",
-    "cards": "glass",
-    "buttons": "pill",
-    "heading": "normal",
-    "shead": "label",
-    "pattern": "dots",
+    "bg": "#16181B",
+    "surface": "#1F2226",
+    "deep": "#0D0E10",
+    "text": "#EDEEF0",
+    "soft": "#A0A6AE",
+    "line": "#30343A",
+    "c1": "#F5A524",
+    "c2": "#64748B",
+    "c3": "#E5484D",
+    "fontDisplay": "Oswald",
+    "fontBody": "IBM Plex Sans",
+    "radius": 2,
+    "preset": "biz-ironworks",
+    "layout": "panel",
+    "nav": "dark",
+    "cards": "outline",
+    "buttons": "sharp",
+    "heading": "upper",
+    "shead": "bar",
+    "pattern": "grid",
     "width": "normal",
     "motionStyle": "rise",
-    "bands": "soft",
+    "bands": "lines",
     "heroArt": "default",
     "cursor": "none",
     "loader": "none",
@@ -30,7 +30,7 @@
     "hoverfx": "none",
     "scrollfx": "none",
     "overlay": "none",
-    "introBg": "#0B1F44",
+    "introBg": "#0D0E10",
     "introFg": "#FFFFFF",
     "introTitle": "",
     "introFont": "display",
@@ -43,8 +43,8 @@
     "adminPage": "admin"
   },
   "brand": {
-    "name": "XYZ welding",
-    "tagline": "Welding Solutions You Can Trust",
+    "name": "Ram Welding",
+    "tagline": "Expert Welding Solutions",
     "logo": null,
     "showName": true
   },
@@ -55,7 +55,8 @@
       "services": "Services",
       "work": "Work",
       "about": "About",
-      "contact": "Contact"
+      "contact": "Contact",
+      "products": "Products"
     }
   },
   "nav": {
@@ -82,15 +83,21 @@
       "inNav": true
     },
     {
+      "id": "products",
+      "label": "Products",
+      "show": true,
+      "inNav": true
+    },
+    {
       "id": "stats",
       "label": "Numbers",
-      "show": true,
+      "show": false,
       "inNav": false
     },
     {
       "id": "work",
       "label": "Work",
-      "show": true,
+      "show": false,
       "inNav": true
     },
     {
@@ -108,7 +115,7 @@
     {
       "id": "team",
       "label": "Team",
-      "show": true,
+      "show": false,
       "inNav": true
     },
     {
@@ -120,7 +127,7 @@
     {
       "id": "pricing",
       "label": "Pricing",
-      "show": true,
+      "show": false,
       "inNav": false
     },
     {
@@ -132,7 +139,7 @@
     {
       "id": "cta",
       "label": "Call to action",
-      "show": true,
+      "show": false,
       "inNav": false
     },
     {
@@ -143,21 +150,54 @@
     }
   ],
   "hero": {
-    "eyebrow": "Expert Welding Services",
-    "title": "Welcome to XYZ Welding",
-    "lede": "Your partner for high-quality welding solutions",
+    "eyebrow": "Welcome to Ram Welding",
+    "title": "Your Trusted Partner for Welding Needs",
+    "lede": "We provide high-quality welding products and services to meet your industrial requirements.",
     "ctaPrimary": "Explore Our Services",
     "ctaPrimaryTarget": "contact",
     "ctaSecondary": "See our work",
     "ctaSecondaryTarget": "work",
     "image": {
-      "path": "assets/uploads/1794638089079-welding.png"
+      "path": "assets/uploads/1794642564173-welding.png"
     },
     "badges": [
       "ISO 27001 certified",
       "120+ projects delivered",
       "Offices in Mumbai & London"
-    ]
+    ],
+    "slides": {
+      "enabled": true,
+      "items": [
+        {
+          "image": {
+            "path": "assets/uploads/1794642669973-new-banner-1.webp"
+          },
+          "position": "center",
+          "title": "",
+          "text": ""
+        },
+        {
+          "image": {
+            "path": "assets/uploads/1794642692744-new-banner-1.webp"
+          },
+          "position": "center",
+          "title": "",
+          "text": ""
+        }
+      ],
+      "effect": "slide",
+      "interval": 2,
+      "speed": 1.2,
+      "overlay": 10,
+      "overlayColor": "#0E1B2C",
+      "overlayStyle": "left",
+      "textColor": "light",
+      "height": "tall",
+      "dots": false,
+      "arrows": false,
+      "pause": true,
+      "hideArt": false
+    }
   },
   "clients": {
     "title": "Trusted by teams at",
@@ -191,42 +231,42 @@
   "services": {
     "eyebrow": "What we do",
     "title": "Our Services",
-    "lede": "We offer a range of welding services to meet your needs",
+    "lede": "We offer a range of welding services and products to support your industrial needs.",
     "items": [
       {
         "icon": "compass",
-        "title": "Welding Services",
-        "body": "Our team of experts provides high-quality welding services",
+        "title": "Welding Machine Sales",
+        "body": "We provide a variety of welding machines designed for different industrial applications.",
         "points": []
       },
       {
         "icon": "layers",
-        "title": "Product Catalogue",
-        "body": "Browse our range of welding products and accessories",
+        "title": "Maintenance and Repair",
+        "body": "Our team is trained to maintain and repair welding equipment to ensure optimal performance.",
         "points": []
       },
       {
         "icon": "code",
-        "title": "Warranty Check",
-        "body": "Check the warranty status of your welding equipment",
+        "title": "Welding Electrodes and Accessories",
+        "body": "We supply high-quality welding electrodes and accessories to meet your welding needs.",
         "points": []
       },
       {
         "icon": "chart",
-        "title": "Request Maintenance",
-        "body": "Schedule maintenance for your welding equipment",
+        "title": "Warranty Check",
+        "body": "We help you verify the warranty status of your welding equipment.",
         "points": []
       },
       {
         "icon": "shield",
-        "title": "Custom Welding Solutions",
-        "body": "We can tailor our services to meet your specific needs",
+        "title": "Request Maintenance",
+        "body": "Our team is available to perform maintenance tasks on your welding equipment.",
         "points": []
       },
       {
         "icon": "people",
-        "title": "Consultation",
-        "body": "Get expert advice on your welding projects",
+        "title": "Product Catalogue",
+        "body": "Browse our catalogue to find the welding products that suit your needs.",
         "points": []
       }
     ]
@@ -234,26 +274,26 @@
   "about": {
     "eyebrow": "About us",
     "title": "About Us",
-    "body": "At XYZ Welding, we pride ourselves on delivering exceptional welding services and products to our clients.",
+    "body": "At Ram Welding, we are dedicated to delivering exceptional welding solutions with a focus on precision, durability, and customer satisfaction.",
     "image": null,
-    "mission": "To provide innovative welding solutions that meet our clients' needs",
-    "vision": "To be a leading provider of welding services and products",
+    "mission": "To provide innovative welding products and services that exceed our customers' expectations.",
+    "vision": "We aim to make a lasting impact in the industry by fostering a culture of excellence and continuous improvement.",
     "values": [
       {
         "title": "Quality",
-        "body": "We strive for excellence in everything we do"
-      },
-      {
-        "title": "Integrity",
-        "body": "We act with honesty and transparency"
+        "body": "We strive for excellence in every product and service we offer."
       },
       {
         "title": "Customer Focus",
-        "body": "We put our clients at the heart of our business"
+        "body": "We prioritize our customers' needs and work to build long-term relationships."
       },
       {
         "title": "Innovation",
-        "body": "We continuously improve and innovate our services and products"
+        "body": "We continuously seek new ways to improve our products and services."
+      },
+      {
+        "title": "Integrity",
+        "body": "We operate with honesty and transparency in all our interactions."
       }
     ]
   },
@@ -316,20 +356,20 @@
     "title": "A clear path from first call to launch",
     "steps": [
       {
-        "title": "Assessment",
-        "body": "We assess your welding needs and provide a quote"
+        "title": "Consultation",
+        "body": "We work with you to understand your welding requirements."
       },
       {
-        "title": "Scheduling",
-        "body": "We schedule a time that suits you for our services"
+        "title": "Product Selection",
+        "body": "We help you choose the right welding products and services for your needs."
       },
       {
-        "title": "Welding",
-        "body": "Our team of experts carries out the welding work"
+        "title": "Installation and Maintenance",
+        "body": "Our team installs and maintains your welding equipment to ensure optimal performance."
       },
       {
-        "title": "Quality Control",
-        "body": "We ensure that our work meets the highest standards"
+        "title": "Ongoing Support",
+        "body": "We provide continuous support to ensure your welding needs are met."
       }
     ]
   },
@@ -386,7 +426,47 @@
     "eyebrow": "Engagements",
     "title": "Ways to work with us",
     "lede": "Fixed scopes for a clear start; retainers when you want a team on call.",
-    "plans": [],
+    "plans": [
+      {
+        "name": "Discovery sprint",
+        "price": "₹4.5L",
+        "period": "fixed, 2 weeks",
+        "blurb": "Research, workshops and a costed roadmap.",
+        "features": [
+          "Stakeholder interviews",
+          "User research",
+          "Roadmap & estimate"
+        ],
+        "cta": "Start a sprint",
+        "featured": false
+      },
+      {
+        "name": "Product build",
+        "price": "From ₹25L",
+        "period": "per project",
+        "blurb": "Design and engineering to launch.",
+        "features": [
+          "Dedicated lead",
+          "Fortnightly releases",
+          "Launch support"
+        ],
+        "cta": "Plan a project",
+        "featured": true
+      },
+      {
+        "name": "Retainer",
+        "price": "₹6L",
+        "period": "per month",
+        "blurb": "A senior team on call for improvements.",
+        "features": [
+          "Design + engineering hours",
+          "Monthly roadmap review",
+          "Priority support"
+        ],
+        "cta": "Talk to us",
+        "featured": false
+      }
+    ],
     "note": "Prices exclude GST. Every engagement starts with a free 30-minute call."
   },
   "faq": {
@@ -394,34 +474,34 @@
     "title": "Questions we're often asked",
     "items": [
       {
-        "q": "What services do you offer?",
-        "a": "We offer a range of welding services, including welding, product catalogue, warranty check, and request maintenance"
+        "q": "What types of welding machines do you offer?",
+        "a": "We offer a variety of welding machines, including ARC, MIG, and TIG welders."
       },
       {
-        "q": "How do I schedule a service?",
-        "a": "You can contact us to schedule a service at a time that suits you"
+        "q": "How do I request maintenance for my welding equipment?",
+        "a": "You can contact us through our website or by phone to request maintenance."
       },
       {
-        "q": "Do you provide custom welding solutions?",
-        "a": "Yes, we can tailor our services to meet your specific needs"
+        "q": "Can I purchase welding electrodes and accessories from you?",
+        "a": "Yes, we supply high-quality welding electrodes and accessories."
       },
       {
-        "q": "What is your warranty policy?",
-        "a": "We provide a warranty for our welding equipment and services"
+        "q": "Do you provide warranty checks for welding equipment?",
+        "a": "Yes, we can help you verify the warranty status of your welding equipment."
       },
       {
-        "q": "How do I request maintenance?",
-        "a": "You can contact us to schedule maintenance for your welding equipment"
+        "q": "How do I contact your team for support?",
+        "a": "You can contact us through our website, by phone, or by email."
       },
       {
-        "q": "Do you offer consultation services?",
-        "a": "Yes, we provide expert advice on welding projects"
+        "q": "What is your approach to customer service?",
+        "a": "We prioritize our customers' needs and work to build long-term relationships."
       }
     ]
   },
   "cta": {
-    "title": "Contact Us",
-    "body": "Get in touch with us to discuss your welding needs",
+    "title": "Take the First Step",
+    "body": "Explore our services and products to find the right solution for your welding needs.",
     "button": "Start a conversation",
     "target": "contact"
   },
@@ -460,8 +540,8 @@
     }
   },
   "footer": {
-    "text": "Copyright 2026 XYZ Welding. All rights reserved.",
-    "legal": "© {year} XYZ welding LLP. All rights reserved.",
+    "text": "Ram Welding - All Rights Reserved.",
+    "legal": "© {year} Ram Welding LLP. All rights reserved.",
     "links": [
       {
         "label": "Privacy",
@@ -474,8 +554,8 @@
     ]
   },
   "seo": {
-    "title": "XYZ Welding - Expert Welding Services and Products",
-    "description": "XYZ Welding provides high-quality welding services and products to meet your needs",
+    "title": "Ram Welding - Expert Welding Solutions",
+    "description": "Ram Welding provides high-quality welding products and services to meet your industrial requirements.",
     "titlePattern": "{page} · {site}",
     "keywords": "",
     "author": "",
@@ -490,7 +570,7 @@
     "show": true
   },
   "warranty": {
-    "enabled": true,
+    "enabled": false,
     "title": "Warranty & service status",
     "intro": "Enter the number on your invoice or product to see its warranty and service status.",
     "navLabel": "Warranty",
@@ -536,6 +616,107 @@
         "id": "not-covered",
         "label": "Not covered",
         "tone": "bad"
+      }
+    ]
+  },
+  "products": {
+    "eyebrow": "Ready-to-start packages",
+    "title": "Products",
+    "lede": "Fixed-scope packages your team can start this month.",
+    "homeCount": 3,
+    "enquire": "Enquire",
+    "more": "View more",
+    "all": "View all products",
+    "showPrice": true,
+    "filter": true,
+    "related": true,
+    "items": [
+      {
+        "name": "Digital Health Check",
+        "category": "Assessments",
+        "badge": "Popular",
+        "summary": "A two-week review of your product, data and delivery, with a clear list of what to fix first.",
+        "price": "From ₹3.5L",
+        "images": [],
+        "features": [
+          "Interviews with 8–12 stakeholders",
+          "Architecture and security review",
+          "Prioritised 90-day plan"
+        ],
+        "details": "We look at how your product is built, run and used, and where time and money are being lost.\n\nYou get a short report, a workshop with your leadership team and a costed plan you can act on, with or without us.",
+        "specs": [
+          {
+            "label": "Duration",
+            "value": "2 weeks"
+          },
+          {
+            "label": "Team",
+            "value": "Lead consultant + architect"
+          },
+          {
+            "label": "Output",
+            "value": "Report, workshop, 90-day plan"
+          }
+        ]
+      },
+      {
+        "name": "Claims Automation Kit",
+        "category": "Accelerators",
+        "badge": "",
+        "summary": "Pre-built workflows and integrations that cut manual steps in insurance claims.",
+        "price": "From ₹18L",
+        "images": [],
+        "features": [
+          "Document intake and checks",
+          "Rules for fast-track claims",
+          "Dashboards for claim teams"
+        ],
+        "details": "A starting point for automating claims, adapted to your products and systems.\n\nIncludes setup, integration with your core system and training for your team.",
+        "specs": [
+          {
+            "label": "Duration",
+            "value": "8–10 weeks"
+          },
+          {
+            "label": "Works with",
+            "value": "Most core insurance systems"
+          }
+        ]
+      },
+      {
+        "name": "Secure Onboarding Toolkit",
+        "category": "Accelerators",
+        "badge": "New",
+        "summary": "Customer sign-up with identity checks and consent, ready for regulated businesses.",
+        "price": "On request",
+        "images": [],
+        "features": [
+          "KYC and identity checks",
+          "Consent records",
+          "Accessible, mobile-first screens"
+        ],
+        "details": "Get customers through sign-up faster without cutting corners on checks.",
+        "specs": [
+          {
+            "label": "Duration",
+            "value": "6 weeks"
+          }
+        ]
+      },
+      {
+        "name": "Analytics Starter Pack",
+        "category": "Assessments",
+        "badge": "",
+        "summary": "Set up the numbers that matter, with dashboards your teams will actually use.",
+        "price": "From ₹6L",
+        "images": [],
+        "features": [
+          "Metrics workshop",
+          "Tracking plan",
+          "Three starter dashboards"
+        ],
+        "details": "",
+        "specs": []
       }
     ]
   }
