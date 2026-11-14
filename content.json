@@ -44,7 +44,7 @@
   },
   "brand": {
     "name": "Ram Welding",
-    "tagline": "Expert Welding Solutions",
+    "tagline": "Quality welding solutions for a stronger tomorrow",
     "logo": null,
     "showName": true
   },
@@ -150,10 +150,10 @@
     }
   ],
   "hero": {
-    "eyebrow": "Welcome to Ram Welding",
-    "title": "Your Trusted Partner for Welding Needs",
-    "lede": "We provide high-quality welding products and services to meet your industrial requirements.",
-    "ctaPrimary": "Explore Our Services",
+    "eyebrow": "Expert welding services",
+    "title": "Ram Welding",
+    "lede": "Your trusted partner for all welding needs",
+    "ctaPrimary": "Get in touch",
     "ctaPrimaryTarget": "contact",
     "ctaSecondary": "See our work",
     "ctaSecondaryTarget": "work",
@@ -231,69 +231,69 @@
   "services": {
     "eyebrow": "What we do",
     "title": "Our Services",
-    "lede": "We offer a range of welding services and products to support your industrial needs.",
+    "lede": "We offer a range of welding services to cater to different industries",
     "items": [
       {
         "icon": "compass",
-        "title": "Welding Machine Sales",
-        "body": "We provide a variety of welding machines designed for different industrial applications.",
+        "title": "ARC Welding",
+        "body": "We provide ARC welding services for various applications",
         "points": []
       },
       {
         "icon": "layers",
-        "title": "Maintenance and Repair",
-        "body": "Our team is trained to maintain and repair welding equipment to ensure optimal performance.",
+        "title": "MIG Welding",
+        "body": "Our MIG welding services are designed for precision and efficiency",
         "points": []
       },
       {
         "icon": "code",
-        "title": "Welding Electrodes and Accessories",
-        "body": "We supply high-quality welding electrodes and accessories to meet your welding needs.",
+        "title": "TIG Welding",
+        "body": "We offer TIG welding services for complex and detailed work",
         "points": []
       },
       {
         "icon": "chart",
-        "title": "Warranty Check",
-        "body": "We help you verify the warranty status of your welding equipment.",
+        "title": "Welding Maintenance",
+        "body": "Our maintenance services ensure your equipment is in top condition",
         "points": []
       },
       {
         "icon": "shield",
-        "title": "Request Maintenance",
-        "body": "Our team is available to perform maintenance tasks on your welding equipment.",
+        "title": "Welding Repair",
+        "body": "We provide repair services for damaged or faulty equipment",
         "points": []
       },
       {
         "icon": "people",
-        "title": "Product Catalogue",
-        "body": "Browse our catalogue to find the welding products that suit your needs.",
+        "title": "Custom Welding",
+        "body": "Our custom welding services cater to unique client requirements",
         "points": []
       }
     ]
   },
   "about": {
     "eyebrow": "About us",
-    "title": "About Us",
-    "body": "At Ram Welding, we are dedicated to delivering exceptional welding solutions with a focus on precision, durability, and customer satisfaction.",
+    "title": "About Ram Welding",
+    "body": "We provide high-quality welding services and products to various industries",
     "image": null,
-    "mission": "To provide innovative welding products and services that exceed our customers' expectations.",
-    "vision": "We aim to make a lasting impact in the industry by fostering a culture of excellence and continuous improvement.",
+    "mission": "To deliver exceptional welding solutions that meet our clients' needs",
+    "vision": "To be a leading welding service provider",
     "values": [
       {
         "title": "Quality",
-        "body": "We strive for excellence in every product and service we offer."
-      },
-      {
-        "title": "Customer Focus",
-        "body": "We prioritize our customers' needs and work to build long-term relationships."
-      },
-      {
-        "title": "Innovation",
-        "body": "We continuously seek new ways to improve our products and services."
+        "body": "We strive for excellence in all our services"
       },
       {
         "title": "Integrity",
-        "body": "We operate with honesty and transparency in all our interactions."
+        "body": "We act with honesty and transparency"
+      },
+      {
+        "title": "Innovation",
+        "body": "We continuously improve our techniques and technologies"
+      },
+      {
+        "title": "Customer satisfaction",
+        "body": "We prioritize our clients' needs and satisfaction"
       }
     ]
   },
@@ -356,20 +356,20 @@
     "title": "A clear path from first call to launch",
     "steps": [
       {
-        "title": "Consultation",
-        "body": "We work with you to understand your welding requirements."
+        "title": "Assessment",
+        "body": "We evaluate your welding needs and provide a tailored solution"
       },
       {
-        "title": "Product Selection",
-        "body": "We help you choose the right welding products and services for your needs."
+        "title": "Design",
+        "body": "Our team designs a welding plan to meet your specific requirements"
       },
       {
-        "title": "Installation and Maintenance",
-        "body": "Our team installs and maintains your welding equipment to ensure optimal performance."
+        "title": "Execution",
+        "body": "We carry out the welding work with precision and care"
       },
       {
-        "title": "Ongoing Support",
-        "body": "We provide continuous support to ensure your welding needs are met."
+        "title": "Quality control",
+        "body": "We ensure our work meets the highest standards of quality"
       }
     ]
   },
@@ -474,34 +474,30 @@
     "title": "Questions we're often asked",
     "items": [
       {
-        "q": "What types of welding machines do you offer?",
-        "a": "We offer a variety of welding machines, including ARC, MIG, and TIG welders."
+        "q": "What welding services do you offer?",
+        "a": "We offer a range of welding services including ARC, MIG, and TIG welding"
       },
       {
-        "q": "How do I request maintenance for my welding equipment?",
-        "a": "You can contact us through our website or by phone to request maintenance."
+        "q": "How do I get a quote?",
+        "a": "You can contact us to request a quote and we will get back to you promptly"
       },
       {
-        "q": "Can I purchase welding electrodes and accessories from you?",
-        "a": "Yes, we supply high-quality welding electrodes and accessories."
+        "q": "Do you provide maintenance services?",
+        "a": "Yes, we offer maintenance services to keep your equipment in top condition"
       },
       {
-        "q": "Do you provide warranty checks for welding equipment?",
-        "a": "Yes, we can help you verify the warranty status of your welding equipment."
+        "q": "Can you handle custom welding projects?",
+        "a": "Yes, we cater to unique client requirements with our custom welding services"
       },
       {
-        "q": "How do I contact your team for support?",
-        "a": "You can contact us through our website, by phone, or by email."
-      },
-      {
-        "q": "What is your approach to customer service?",
-        "a": "We prioritize our customers' needs and work to build long-term relationships."
+        "q": "How do I get in touch with you?",
+        "a": "You can contact us through our website or by phone/email"
       }
     ]
   },
   "cta": {
-    "title": "Take the First Step",
-    "body": "Explore our services and products to find the right solution for your welding needs.",
+    "title": "Take the first step",
+    "body": "Get in touch with us today",
     "button": "Start a conversation",
     "target": "contact"
   },
@@ -509,7 +505,7 @@
     "eyebrow": "Contact",
     "title": "Let's talk about your project",
     "lede": "Send a few details and we'll set up a 30-minute call. No obligation.",
-    "email": "hello@northbeam.example",
+    "email": "ram@gmail.com",
     "phone": "+91 22 4000 1234",
     "whatsapp": "",
     "address": "Level 9, One BKC\nBandra Kurla Complex, Mumbai 400051",
@@ -540,8 +536,8 @@
     }
   },
   "footer": {
-    "text": "Ram Welding - All Rights Reserved.",
-    "legal": "© {year} Ram Welding LLP. All rights reserved.",
+    "text": "Copyright 2026 Ram Welding. All rights reserved.",
+    "legal": "© {year} Ram Welding. All rights reserved.",
     "links": [
       {
         "label": "Privacy",
@@ -554,8 +550,8 @@
     ]
   },
   "seo": {
-    "title": "Ram Welding - Expert Welding Solutions",
-    "description": "Ram Welding provides high-quality welding products and services to meet your industrial requirements.",
+    "title": "Ram Welding - Quality welding solutions",
+    "description": "Ram Welding provides high-quality welding services and products to various industries",
     "titlePattern": "{page} · {site}",
     "keywords": "",
     "author": "",
@@ -717,26 +713,6 @@
             "value": "720 × 415 × 810"
           }
         ]
-      },
-      {
-        "name": "OXYWELD CUT 80",
-        "category": "PLASMA WELDING MACHINE",
-        "badge": "",
-        "summary": "The OXYWELD CUT 80 is a plasma welding machine built for precision and performance, delivering smooth, clean cuts with maximum efficiency, stability, and reliability.",
-        "price": "",
-        "images": [
-          {
-            "path": "assets/uploads/1794643559196-pamphlet-page-2.jpg"
-          }
-        ],
-        "features": [
-          "Smooth, clean & precise cuts",
-          "Stable arc with maximum cutting efficiency",
-          "Durable design for tough environments",
-          "Lower power consumption with higher output"
-        ],
-        "details": "The OXYWELD CUT 80 is a plasma welding machine built for precision and performance, delivering smooth, clean cuts with maximum efficiency, stability, and reliability. It has a maximum clean cut of 14mm and a severance cut of 16mm, with a maximum output of 80A.",
-        "specs": []
       },
       {
         "name": "OXYWELD CUT 160",
@@ -1112,6 +1088,39 @@
           {
             "label": "Wire Feeder Cable Length",
             "value": "10 Meter"
+          }
+        ]
+      },
+      {
+        "name": "OXYWELD CUT 80",
+        "category": "PLASMA WELDING MACHINE",
+        "badge": "",
+        "summary": "The OXYWELD CUT 80 is a plasma welding machine built for precision and performance, delivering smooth and clean cuts. It offers maximum efficiency, stability, and reliability in every job.",
+        "price": "",
+        "images": [
+          {
+            "path": "assets/uploads/1794678898071-whatsapp-image-2026-11-13-at-93923-pm.jpeg"
+          }
+        ],
+        "features": [
+          "Smooth, clean & precise cuts",
+          "Stable arc with maximum cutting efficiency",
+          "Durable design",
+          "Energy efficient"
+        ],
+        "details": "The OXYWELD CUT 80 is designed to provide superior cut quality, high performance, and is built to last. It also features advanced technology, reliable and durable construction, and premium quality. The machine has a maximum clean cut of 14mm and a severance cut of 16mm, with a maximum output of 80A.",
+        "specs": [
+          {
+            "label": "MAX CLEAN CUT",
+            "value": "14MM"
+          },
+          {
+            "label": "SEVERANCE CUT",
+            "value": "16MM"
+          },
+          {
+            "label": "MAX OUTPUT",
+            "value": "80A"
           }
         ]
       }
