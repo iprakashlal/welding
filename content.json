@@ -623,7 +623,7 @@
     "eyebrow": "Ready-to-start packages",
     "title": "Products",
     "lede": "Fixed-scope packages your team can start this month.",
-    "homeCount": 3,
+    "homeCount": 4,
     "enquire": "Enquire",
     "more": "View more",
     "all": "View all products",
@@ -632,91 +632,488 @@
     "related": true,
     "items": [
       {
-        "name": "Digital Health Check",
-        "category": "Assessments",
-        "badge": "Popular",
-        "summary": "A two-week review of your product, data and delivery, with a clear list of what to fix first.",
-        "price": "From ₹3.5L",
-        "images": [],
-        "features": [
-          "Interviews with 8–12 stakeholders",
-          "Architecture and security review",
-          "Prioritised 90-day plan"
-        ],
-        "details": "We look at how your product is built, run and used, and where time and money are being lost.\n\nYou get a short report, a workshop with your leadership team and a costed plan you can act on, with or without us.",
-        "specs": [
-          {
-            "label": "Duration",
-            "value": "2 weeks"
-          },
-          {
-            "label": "Team",
-            "value": "Lead consultant + architect"
-          },
-          {
-            "label": "Output",
-            "value": "Report, workshop, 90-day plan"
-          }
-        ]
-      },
-      {
-        "name": "Claims Automation Kit",
-        "category": "Accelerators",
+        "name": "OXYWELD MZ 1250",
+        "category": "SAW WELDER SERIES",
         "badge": "",
-        "summary": "Pre-built workflows and integrations that cut manual steps in insurance claims.",
-        "price": "From ₹18L",
-        "images": [],
-        "features": [
-          "Document intake and checks",
-          "Rules for fast-track claims",
-          "Dashboards for claim teams"
+        "summary": "The OXYWELD MZ 1250 is a submerged arc automatic welder built to deliver superior weld quality and maximum productivity in tough applications. It ensures stable performance, low power consumption, and long-term reliability.",
+        "price": "",
+        "images": [
+          {
+            "path": "assets/uploads/1794643558198-pamphlet-page-1.jpg"
+          }
         ],
-        "details": "A starting point for automating claims, adapted to your products and systems.\n\nIncludes setup, integration with your core system and training for your team.",
+        "features": [
+          "Advanced Soft Switch Inverter Technology",
+          "High Efficiency with Lower Power Consumption",
+          "Intelligent Protection for Over Current, Over Temperature, Over / Under Voltage, Phase Loss",
+          "Wide Welding Parameter Range for Different Applications",
+          "Digital Display for Current, Voltage and Welding Speed",
+          "Compact, Rugged & Easy to Move"
+        ],
+        "details": "The OXYWELD MZ 1250 is a submerged arc automatic welder built to deliver superior weld quality and maximum productivity in tough applications. It ensures stable performance, low power consumption, and long-term reliability. The MZ 1250 is a complete SAW welding system, including a power source and trolley. It is ideal for heavy fabrication, structural steel, shipbuilding, pressure vessels, and pipeline construction.",
         "specs": [
           {
-            "label": "Duration",
-            "value": "8–10 weeks"
+            "label": "Phase",
+            "value": "Three"
           },
           {
-            "label": "Works with",
-            "value": "Most core insurance systems"
-          }
-        ]
-      },
-      {
-        "name": "Secure Onboarding Toolkit",
-        "category": "Accelerators",
-        "badge": "New",
-        "summary": "Customer sign-up with identity checks and consent, ready for regulated businesses.",
-        "price": "On request",
-        "images": [],
-        "features": [
-          "KYC and identity checks",
-          "Consent records",
-          "Accessible, mobile-first screens"
-        ],
-        "details": "Get customers through sign-up faster without cutting corners on checks.",
-        "specs": [
+            "label": "Input Voltage (Vin)",
+            "value": "AC 415V ± 15%"
+          },
           {
-            "label": "Duration",
-            "value": "6 weeks"
+            "label": "Input Frequency (Hz)",
+            "value": "50/60"
+          },
+          {
+            "label": "Rated Input Power (KVA)",
+            "value": "71"
+          },
+          {
+            "label": "Rated Input Current (Amp)",
+            "value": "108"
+          },
+          {
+            "label": "No Load Voltage (V)",
+            "value": "70-80"
+          },
+          {
+            "label": "Output Current Range (A)",
+            "value": "100-1250"
+          },
+          {
+            "label": "Force Range",
+            "value": "0-10"
+          },
+          {
+            "label": "Duty Cycle (%)",
+            "value": "100/40°C"
+          },
+          {
+            "label": "Efficiency (%)",
+            "value": "85"
+          },
+          {
+            "label": "Power Factor",
+            "value": "0.93"
+          },
+          {
+            "label": "Insulation Grade",
+            "value": "F"
+          },
+          {
+            "label": "Housing Protection Grade",
+            "value": "IP21"
+          },
+          {
+            "label": "Weight (Kg)",
+            "value": "94"
+          },
+          {
+            "label": "Electrode Dia (mm)",
+            "value": "3.15 - 6.3"
+          },
+          {
+            "label": "Dimension (mm)",
+            "value": "720 × 415 × 810"
           }
         ]
       },
       {
-        "name": "Analytics Starter Pack",
-        "category": "Assessments",
+        "name": "OXYWELD CUT 80",
+        "category": "PLASMA WELDING MACHINE",
         "badge": "",
-        "summary": "Set up the numbers that matter, with dashboards your teams will actually use.",
-        "price": "From ₹6L",
-        "images": [],
-        "features": [
-          "Metrics workshop",
-          "Tracking plan",
-          "Three starter dashboards"
+        "summary": "The OXYWELD CUT 80 is a plasma welding machine built for precision and performance, delivering smooth, clean cuts with maximum efficiency, stability, and reliability.",
+        "price": "",
+        "images": [
+          {
+            "path": "assets/uploads/1794643559196-pamphlet-page-2.jpg"
+          }
         ],
-        "details": "",
+        "features": [
+          "Smooth, clean & precise cuts",
+          "Stable arc with maximum cutting efficiency",
+          "Durable design for tough environments",
+          "Lower power consumption with higher output"
+        ],
+        "details": "The OXYWELD CUT 80 is a plasma welding machine built for precision and performance, delivering smooth, clean cuts with maximum efficiency, stability, and reliability. It has a maximum clean cut of 14mm and a severance cut of 16mm, with a maximum output of 80A.",
         "specs": []
+      },
+      {
+        "name": "OXYWELD CUT 160",
+        "category": "INVERTER PLASMA CUTTER",
+        "badge": "",
+        "summary": "The OXYWELD CUT 160 is a high-performance inverter plasma cutter designed for precise and efficient cutting of mild steel, stainless steel, aluminum, and other conductive metals.",
+        "price": "",
+        "images": [
+          {
+            "path": "assets/uploads/1794643559979-pamphlet-page-3.jpg"
+          }
+        ],
+        "features": [
+          "IGBT Inverter Technology",
+          "Stable & Smooth Plasma Arc",
+          "High Cutting Performance",
+          "High Voltage Protection",
+          "Low Energy Consumption",
+          "Compact & Portable Design",
+          "Durable & Rugged Build"
+        ],
+        "details": "The OXYWELD CUT 160 is a high-performance inverter plasma cutter designed for precise and efficient cutting of mild steel, stainless steel, aluminum, and other conductive metals. It has a cutting thickness of up to 25mm, an output current of 160A, and a duty cycle of 100% at 40°C.",
+        "specs": [
+          {
+            "label": "Phase",
+            "value": "Three"
+          },
+          {
+            "label": "Input Voltage (Vin)",
+            "value": "AC 415V ± 15%"
+          },
+          {
+            "label": "Input Frequency (Hz)",
+            "value": "50/60"
+          },
+          {
+            "label": "Rated Input Power (kVA)",
+            "value": "32"
+          },
+          {
+            "label": "Rated Input Current (Amp)",
+            "value": "43"
+          },
+          {
+            "label": "No Load Voltage (V)",
+            "value": "320"
+          },
+          {
+            "label": "Output Current Range (A)",
+            "value": "35 - 160"
+          },
+          {
+            "label": "Rated Output Voltage (V)",
+            "value": "160"
+          },
+          {
+            "label": "Duty Cycle",
+            "value": "100% @ 40°C"
+          },
+          {
+            "label": "No Load Loss (W)",
+            "value": "100"
+          },
+          {
+            "label": "Efficiency (%)",
+            "value": "90"
+          },
+          {
+            "label": "Power Factor",
+            "value": "0.89"
+          },
+          {
+            "label": "Insulation Grade",
+            "value": "F"
+          },
+          {
+            "label": "Housing Protection Grade",
+            "value": "IP21S"
+          },
+          {
+            "label": "Arcing Way",
+            "value": "HF (Pilot Arc)"
+          },
+          {
+            "label": "Air Pressure (HP)",
+            "value": "4.5 - 5.5"
+          },
+          {
+            "label": "Cutting Plate Thickness (Max mm)",
+            "value": "1 - 50/1 - 25"
+          },
+          {
+            "label": "Weight (Kg)",
+            "value": "75"
+          },
+          {
+            "label": "Dimension (mm)",
+            "value": "825 x 350 x 735"
+          }
+        ]
+      },
+      {
+        "name": "OXYWELD MMA 400",
+        "category": "DC INVERTER ARC WELDER",
+        "badge": "",
+        "summary": "The OXYWELD MMA 400 is a high-performance inverter DC arc welder designed for heavy-duty welding applications, delivering superior durability, stable arc, and consistent welding performance.",
+        "price": "",
+        "images": [
+          {
+            "path": "assets/uploads/1794643560818-pamphlet-page-4.jpg"
+          }
+        ],
+        "features": [
+          "ALL METAL BODY",
+          "STABLE ARC PERFORMANCE",
+          "HIGH OUTPUT & DUTY CYCLE",
+          "OVERHEAT PROTECTION",
+          "WIDE VOLTAGE TOLERANCE",
+          "EASY TO CARRY"
+        ],
+        "details": "The OXYWELD MMA 400 is a high-performance inverter DC arc welder designed for heavy-duty welding applications, delivering superior durability, stable arc, and consistent welding performance. It has a robust all-metal body, advanced inverter technology, and a high output of 400A.",
+        "specs": [
+          {
+            "label": "Input Voltage (Vin)",
+            "value": "AC 415V ± 15%"
+          },
+          {
+            "label": "Input Frequency (Hz)",
+            "value": "50/60"
+          },
+          {
+            "label": "Rated Input Power (KVA)",
+            "value": "23"
+          },
+          {
+            "label": "Rated Input Current (Amp)",
+            "value": "35"
+          },
+          {
+            "label": "No Load Voltage (V)",
+            "value": "68"
+          },
+          {
+            "label": "Output Current Range (A)",
+            "value": "20 - 400"
+          },
+          {
+            "label": "Rated Output Voltage (V)",
+            "value": "36"
+          },
+          {
+            "label": "Duty Cycle (%)",
+            "value": "60"
+          },
+          {
+            "label": "Efficiency (%)",
+            "value": "85"
+          },
+          {
+            "label": "Power Factor",
+            "value": "0.93"
+          },
+          {
+            "label": "Insulation Grade",
+            "value": "F"
+          },
+          {
+            "label": "Protection Class",
+            "value": "IP21S"
+          },
+          {
+            "label": "Electrode Diameter (mm)",
+            "value": "2.5 - 6.0"
+          },
+          {
+            "label": "Arc Force",
+            "value": "Adjustable"
+          },
+          {
+            "label": "Hot Start",
+            "value": "Adjustable"
+          },
+          {
+            "label": "Anti Stick",
+            "value": "Yes"
+          },
+          {
+            "label": "Cooling",
+            "value": "Forced Air"
+          },
+          {
+            "label": "Weight (Kg)",
+            "value": "24"
+          },
+          {
+            "label": "Dimension (mm)",
+            "value": "520 x 250 x 420"
+          }
+        ]
+      },
+      {
+        "name": "OXYWELD NB-500E",
+        "category": "MIG/MAG/CO2 ARC WELDING MACHINE",
+        "badge": "",
+        "summary": "The OXYWELD NB-500E is a high-performance MIG/MAG/CO2 welding machine designed for heavy fabrication and industrial use, delivering smooth arc, deep penetration, and consistent weld quality.",
+        "price": "",
+        "images": [
+          {
+            "path": "assets/uploads/1794643561579-pamphlet-page-5.jpg"
+          }
+        ],
+        "features": [
+          "FULLY DIGITAL SYNERGIC CONTROL",
+          "POWERFUL & STABLE ARC",
+          "BUILT TOUGH. BUILT RELIABLE"
+        ],
+        "details": "The OXYWELD NB-500E is a high-performance MIG/MAG/CO2 welding machine designed for heavy fabrication and industrial use, delivering smooth arc, deep penetration, and consistent weld quality. It has a high output of 500A, a duty cycle of 60% at 40°C, and is ideal for heavy fabrication, structural work, plant & machinery, ship building, construction, and railway & infrastructure.",
+        "specs": [
+          {
+            "label": "Input Voltage",
+            "value": "3PH 380V ±15% / 50-60Hz"
+          },
+          {
+            "label": "Rated Input Power",
+            "value": "30.5 kVA"
+          },
+          {
+            "label": "Rated Input Current",
+            "value": "46.5 A"
+          },
+          {
+            "label": "Output Current Range (MIG)",
+            "value": "50 - 500 A"
+          },
+          {
+            "label": "Output Current Range (MMA)",
+            "value": "20 - 500 A"
+          },
+          {
+            "label": "Rated Output Voltage (MIG)",
+            "value": "44 V"
+          },
+          {
+            "label": "No Load Voltage",
+            "value": "65 V"
+          },
+          {
+            "label": "Duty Cycle (40°C)",
+            "value": "60% @ 500A"
+          },
+          {
+            "label": "Power Factor",
+            "value": "> 0.93"
+          },
+          {
+            "label": "Usable Electrodes",
+            "value": "1.6 - 5.0 mm"
+          },
+          {
+            "label": "Wire Feeding Speed",
+            "value": "1.5 - 22 m/min"
+          },
+          {
+            "label": "Wire Diameter",
+            "value": "0.8 - 1.6 mm"
+          },
+          {
+            "label": "Insulation Class",
+            "value": "F"
+          },
+          {
+            "label": "Protection Class",
+            "value": "IP21S"
+          },
+          {
+            "label": "Cooling System",
+            "value": "Forced Air"
+          },
+          {
+            "label": "Weight",
+            "value": "38 kg (Power Source)"
+          },
+          {
+            "label": "Dimensions (L x W x H)",
+            "value": "610 x 270 x 485 mm"
+          }
+        ]
+      },
+      {
+        "name": "OXYWELD MIG 400",
+        "category": "MIG/MMA SERIES",
+        "badge": "",
+        "summary": "The OXYWELD MIG 400 is a powerful inverter-based MIG/MMA welding machine built with IGBT technology for smooth, stable, and efficient welding, ideal for industrial use.",
+        "price": "",
+        "images": [
+          {
+            "path": "assets/uploads/1794643562370-pamphlet-page-6.jpg"
+          }
+        ],
+        "features": [
+          "10 METER WIRE FEEDER",
+          "POWERFUL & STABLE ARC",
+          "MIG / MMA DUAL FUNCTION",
+          "PRECISE DIGITAL CONTROL",
+          "BUILT TOUGH. BUILT RELIABLE"
+        ],
+        "details": "The OXYWELD MIG 400 is a powerful inverter-based MIG/MMA welding machine built with IGBT technology for smooth, stable, and efficient welding, ideal for industrial use. It has a high output of 400A, a duty cycle of 60%, and is ideal for heavy fabrication, structural work, plant & machinery, ship building, construction, automotive, and maintenance & repair.",
+        "specs": [
+          {
+            "label": "Input Voltage",
+            "value": "3PH 415V ± 15%"
+          },
+          {
+            "label": "Input Frequency",
+            "value": "50/60 Hz"
+          },
+          {
+            "label": "Rated Input Power",
+            "value": "17 kVA"
+          },
+          {
+            "label": "Rated Input Current",
+            "value": "27 A"
+          },
+          {
+            "label": "No Load Voltage",
+            "value": "68 V"
+          },
+          {
+            "label": "Output Current Range",
+            "value": "40 - 400 A"
+          },
+          {
+            "label": "Rated Output Voltage",
+            "value": "31.5 V"
+          },
+          {
+            "label": "Duty Cycle",
+            "value": "60%"
+          },
+          {
+            "label": "Efficiency",
+            "value": "87%"
+          },
+          {
+            "label": "Insulation Class",
+            "value": "F"
+          },
+          {
+            "label": "Protection Class",
+            "value": "IP21"
+          },
+          {
+            "label": "Wire Feeding Speed",
+            "value": "3.00 - 15.00 m/min"
+          },
+          {
+            "label": "Wire Feeding Mechanism",
+            "value": "External"
+          },
+          {
+            "label": "Wire Dia",
+            "value": "0.8 - 1.2 mm"
+          },
+          {
+            "label": "Weight",
+            "value": "30 kg (Power Source)"
+          },
+          {
+            "label": "Dimension ( L x W x H)",
+            "value": "514 x 278 x 450 mm"
+          },
+          {
+            "label": "Wire Feeder Cable Length",
+            "value": "10 Meter"
+          }
+        ]
       }
     ]
   }
