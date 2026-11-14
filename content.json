@@ -490,7 +490,7 @@
     "show": true
   },
   "warranty": {
-    "enabled": false,
+    "enabled": true,
     "title": "Warranty & service status",
     "intro": "Enter the number on your invoice or product to see its warranty and service status.",
     "navLabel": "Warranty",
