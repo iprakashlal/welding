@@ -1,9 +1,9 @@
 {
   "template": "business",
   "name": "Ram welding",
-  "version": 3,
+  "version": 4,
   "admin": "admin.html",
-  "exportedAt": "2026-11-14T08:07:03.906Z",
+  "exportedAt": "2026-11-14T08:10:32.681Z",
   "generator": "Site Studio",
   "studioBuild": {
     "id": "435d624",

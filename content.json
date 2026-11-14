@@ -570,7 +570,7 @@
     "show": true
   },
   "warranty": {
-    "enabled": false,
+    "enabled": true,
     "title": "Warranty & service status",
     "intro": "Enter the number on your invoice or product to see its warranty and service status.",
     "navLabel": "Warranty",
@@ -585,7 +585,7 @@
     "help": "Need help? Contact us and we'll look it up.",
     "showWarranty": true,
     "showHistory": true,
-    "showCustomer": false,
+    "showCustomer": true,
     "statuses": [
       {
         "id": "registered",
