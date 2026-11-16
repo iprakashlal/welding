@@ -125,7 +125,7 @@ const DEFAULT = {
       enabled: true, title: "Tell us about your project", askPhone: true, askCompany: true, askService: true, askBudget: true,
       budgets: ["Under ₹5L", "₹5L – ₹25L", "₹25L – ₹1Cr", "Above ₹1Cr"], submit: "Send enquiry",
       success: "Thank you. We've received your enquiry and will reply within one working day.", consent: "I agree to be contacted about this enquiry.",
-      saveTo: "auto", fileUrl: "", sbUrl: "", sbKey: "", site: "",
+      saveTo: "auto", fileUrl: "", sbUrl: "", sbKey: "", site: "", notify: false, notifyTo: "", notifySubject: "",
     },
   },
   warranty: { enabled: false, title: "Warranty & service status", intro: "Enter the number on your invoice or product to see its warranty and service status.", navLabel: "Warranty", inNav: true, inFooter: true,
@@ -493,10 +493,98 @@ const swOn = () => !!(C.warranty && C.warranty.enabled);
 const swOpts = () => ({ cfg: C.warranty, url: (HOST && HOST.assets ? HOST.assets : "") + "assets/data/warranty.json", preview: PREVIEW, esc });
 const swOpen = () => SW().then((w) => w.open(swOpts())).catch(() => {});
 const swMount = () => { const el = document.getElementById("sw-page"); if (el) SW().then((w) => w.mount(el, swOpts())).catch(() => {}); };
+/** The browser-tab icon: the uploaded logo, else the name's initials in the accent colour. The logo is used as it
+ *  is straight away, then swapped for a square copy (the whole logo, centred) so a wide logo isn't squashed. */
+let iconKey = "";
+function setIcon() {
+  const B = C.brand, t = C.theme, acc = t.c1, rad = Math.max(0, Math.min(50, t.logoRadius ?? 22)), src = imgUrl(B.logo), key = [src, B.name, rad, acc].join("|");
+  if (key === iconKey) return; iconKey = key;
+  let l = document.querySelector("link[rel=icon]"); if (!l) { l = document.createElement("link"); l.rel = "icon"; document.head.appendChild(l); }
+  document.querySelectorAll('link[rel="shortcut icon"], link[rel="apple-touch-icon"]').forEach((x) => x.remove());
+  if (src) {
+    l.removeAttribute("type"); l.href = src;
+    const im = new Image(); im.crossOrigin = "anonymous";
+    im.onload = () => { try {
+      if (iconKey !== key || !im.width || Math.abs(im.width - im.height) < 3) return;
+      const cv = document.createElement("canvas"); cv.width = cv.height = 128; const s = Math.min(128 / im.width, 128 / im.height);
+      cv.getContext("2d").drawImage(im, (128 - im.width * s) / 2, (128 - im.height * s) / 2, im.width * s, im.height * s);
+      const u = cv.toDataURL("image/png"); if (iconKey === key) { l.type = "image/png"; l.href = u; }
+    } catch (e) { /* the photo host doesn't allow copying: the logo itself stays as the icon */ } };
+    im.src = src;
+    return;
+  }
+  const ini = String(B.name || "").split(/\s+/).map((w) => w[0] || "").join("").slice(0, 2).toUpperCase() || "•";
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="${(rad * 0.64).toFixed(1)}" fill="${esc(acc)}"/><text x="32" y="34" dominant-baseline="middle" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="800" font-size="${ini.length > 1 ? 26 : 34}" fill="${onColor(acc)}">${esc(ini)}</text></svg>`;
+  l.type = "image/svg+xml"; l.href = "data:image/svg+xml," + encodeURIComponent(svg);
+}
+/* Features (assets/addons.js): chat button, badge, custom code and the custom API for form entries. */
+let adP;
+function addons() {
+  const A = C.addons || {}, any = (A.chat && A.chat.on) || (A.badge && A.badge.on) || (A.api && A.api.on) || (A.code || []).some((x) => x && x.on !== false && x.code);
+  if (!any && !window.SiteAddons) return;
+  (adP ||= new Promise((ok, no) => { if (window.SiteAddons) return ok(); const s = document.createElement("script"); s.src = "assets/addons.js"; s.onload = () => ok(); s.onerror = no; document.head.appendChild(s); }))
+    .then(() => window.SiteAddons.mount(C, { preview: PREVIEW, home: PAGE === "home", site: C.brand.name })).catch(() => {});
+}
+/* Festival overlay (assets/festival.js): greetings on India's festivals, when the Studio offered it to this site. */
+let fsP;
+function festival() {
+  const F = C.festival || {};
+  if (!(F.allowed && F.on !== false) && !window.SiteFestival) return;
+  (fsP ||= new Promise((ok, no) => { if (window.SiteFestival) return ok(); const s = document.createElement("script"); s.src = "assets/festival.js"; s.onload = () => ok(); s.onerror = no; document.head.appendChild(s); }))
+    .then(() => window.SiteFestival.mount(C, { preview: PREVIEW, site: C.brand.name })).catch(() => {});
+}
+/* Cookie consent (assets/consent.js): the banner that asks before analytics, marketing and other optional code runs. */
+let csP;
+function consent() {
+  if (!(C.consent || {}).on && !window.SiteConsent) return;
+  (csP ||= new Promise((ok, no) => { if (window.SiteConsent) return ok(); const s = document.createElement("script"); s.src = "assets/consent.js"; s.onload = () => ok(); s.onerror = no; document.head.appendChild(s); }))
+    .then(() => window.SiteConsent.mount(C, { preview: PREVIEW, pageUrl: (id) => { const p = spList().find((x) => x.id === id); return p ? spHref(p) : ""; } })).catch(() => {});
+}
+/* The owner's own menu with sub-menus (assets/menu.js), in place of the automatic links. */
+let mnP;
+const menuOn = () => !!(C.menu && C.menu.custom && (C.menu.items || []).some((i) => i && i.show !== false && String(i.label || "").trim()));
+function menuGo(it) {
+  const t = it.to || "";
+  if (t === "none") return { url: "" };
+  if (t === "url") { const u = String(it.url || "").trim(); return { url: safeUrl(u) || (/^(#|\/|\.\/|[\w-]+\.html)/.test(u) ? u : "") }; }
+  if (t === "page") { const p = spList().find((x) => x.id === it.page); return p ? { url: spHref(p), on: PAGE === "page" && spSlug(p) === spSlug({ slug: spCur() }) } : { url: "" }; }
+  if (t === "warranty") return swOn() ? { url: multi() ? PAGES.warranty : "#warranty", on: PAGE === "warranty" } : { url: "" };
+  const url = href(t === "home" ? "hero" : t);
+  return { url: t === "home" && !multi() ? AT + "#top" : url, on: multi() && (url === PAGES[PAGE] || (PAGE === "product" && url === PAGES.products)) };
+}
+function menu() {
+  if (!menuOn()) return;
+  const done = () => { const w = document.getElementById("sm-wait"); if (w) w.remove(); };
+  if (!window.SiteMenu && !document.getElementById("sm-wait")) { const w = document.createElement("style"); w.id = "sm-wait"; w.textContent = ".nav .links,#mnav{visibility:hidden}"; document.head.appendChild(w); setTimeout(done, 2500); }
+  (mnP ||= new Promise((ok, no) => { if (window.SiteMenu) return ok(); const s = document.createElement("script"); s.src = "assets/menu.js"; s.onload = () => ok(); s.onerror = no; document.head.appendChild(s); }))
+    .then(() => {
+      window.SiteMenu.mount(C, { navs: [".nav .links", "#mnav"], keep: "a.btn", resolve: menuGo, onPick: (a, e) => {
+        const b = $(".burger"), m = $("#mnav"); b && b.setAttribute("aria-expanded", "false"); m && m.classList.remove("open");
+        if (a.getAttribute("href") === "#warranty" && swOn() && !multi()) { e.preventDefault(); swOpen(); }
+      } });
+      done();
+    }).catch(done);
+}
+/* Maintenance mode (assets/maint.js): while content.maintenance.on, visitors see the maintenance page instead of the
+   site. The editor's preview shows it too (with a button to see the site), and on its "Maintenance page" entry
+   (?maintenance=1) while it is off. */
+const MNT_Q = /[?&]maintenance=1(&|$)/.test(location.search);
+let mntP, mntPass = false;
+function maintGate(again) {
+  const on = (PREVIEW && MNT_Q) || !!(C.maintenance || {}).on;
+  if (!on || mntPass) { if (window.SiteMaint) window.SiteMaint.hide(); return false; }
+  (mntP ||= new Promise((ok, no) => { if (window.SiteMaint) return ok(); const s = document.createElement("script"); s.src = "assets/maint.js"; s.onload = () => ok(); s.onerror = no; document.head.appendChild(s); }))
+    .then(() => {
+      if (window.SiteMaint.wanted(C, PREVIEW)) window.SiteMaint.show(C, { name: C.brand.name, logo: imgUrl(C.brand.logo), preview: PREVIEW, again });
+      else { mntPass = true; again(); }
+    }).catch(() => { mntPass = true; again(); });
+  return true;
+}
 function render() {
   // A several-page link opened while the site is one page goes to that section.
   if (!PREVIEW && !multi() && !["home", "products", "product", "page"].includes(PAGE)) { location.replace(PAGES.home + "#" + (PAGE === "work" ? "work" : PAGE)); return; }
-  applyTheme(C.theme); setTitle();
+  applyTheme(C.theme); setTitle(); setIcon();
+  if (maintGate(render)) return;
   if (!PREVIEW && PAGE === "warranty" && !swOn()) { location.replace(PAGES.home); return; }
   const special = { warranty: warrantyPage, products: productsPage, product: productPage, page: staticPage }[PAGE];
   const ids = special ? [] : multi() ? (PAGE === "home" ? C.sections.map((s) => s.id).filter((id) => PAGE_SECTIONS.home.includes(id)) : PAGE_SECTIONS[PAGE]) : C.sections.map((s) => s.id);
@@ -505,7 +593,7 @@ function render() {
   bind();
   if (PAGE === "warranty") swMount();
   if (PAGE === "page" && window.SitePages) window.SitePages.after(window.SitePages.find(C, spCur(), PREVIEW));
-  slides();
+  slides(); menu(); consent(); addons(); festival();
   if (window.SiteFX) try { window.SiteFX.init({ root: $("#app"), brand: C.theme.introTitle || C.brand.name, badge: C.poweredBy }); } catch (e) {}
 }
 
@@ -533,9 +621,17 @@ function bind() {
 let slP, slGen = 0;
 function slides() {
   const S = C.hero.slides, g = ++slGen, host = $("#hero");
-  if (!host || !S || !S.enabled || !(S.items || []).some((x) => x && x.image)) { if (window.SiteSlides) window.SiteSlides.stop(); return; }
+  const H = document.documentElement;
+  if (!host || !S || !S.enabled || !(S.items || []).some((x) => x && x.image)) { if (window.SiteSlides) window.SiteSlides.stop(); H.classList.remove("hs-top", "hs-top-light"); return; }
   (slP ||= new Promise((ok, no) => { if (window.SiteSlides) return ok(window.SiteSlides); const s = document.createElement("script"); s.src = "assets/slides.js"; s.onload = () => ok(window.SiteSlides); s.onerror = no; document.head.appendChild(s); }))
-    .then((w) => { if (g === slGen) w.mount(host, S, { imgUrl, title: ".h1", text: ".hero-lede", hide: ".hero-media,.hero-bg" }); }).catch(() => {});
+    .then((w) => {
+      if (g !== slGen) return;
+      w.mount(host, S, { imgUrl, title: ".h1", text: ".hero-lede", hide: ".hero-media,.hero-bg" });
+      // The photos run up behind the header, so the header and the hero read as one piece (not a strip above the photos).
+      const nav = $(".nav"), top = !!nav && !host.previousElementSibling && H.dataset.nav !== "dark" && H.dataset.layout !== "panel" && host.classList.contains("hs-host");
+      H.classList.toggle("hs-top", top); H.classList.toggle("hs-top-light", top && host.classList.contains("hs-light"));
+      if (top) { const fit = () => H.style.setProperty("--nav-h", nav.offsetHeight + "px"); fit(); if (!slides.bound) { slides.bound = true; addEventListener("resize", fit); } }
+    }).catch(() => {});
 }
 /** Product filters and photos, and "Enquire": fills the enquiry form with the product. */
 function bindProducts() {
@@ -562,7 +658,6 @@ function prefill(id, scroll) {
 /** Where enquiries go: the hosted site's Supabase, the form's own Supabase settings, or email. */
 function backend() {
   const F = C.contact.form;
-  if (F.saveTo === "email") return null;
   if (F.saveTo === "file") return /^https:\/\//.test(F.fileUrl || "") ? { file: F.fileUrl } : null;
   if (HOST && HOST.api && HOST.site) return { cf: HOST.api, site: HOST.site };
   if (HOST && HOST.db && HOST.key && HOST.site) return { url: HOST.db, key: HOST.key, site: HOST.site };
@@ -616,7 +711,7 @@ if (PREVIEW) {
     const d = e.data || {};
     if (d.type === "cms:content" && d.content && typeof d.content === "object") { ASSETS = d.assets || {}; const y = scrollY; C = merge(DEFAULT, d.content); render(); scrollTo(0, y); }
   });
-  window.parent.postMessage({ type: "cms:ready", page: (location.pathname.split("/").pop() || "index.html") + (PAGE === "page" && spCur() ? "?p=" + encodeURIComponent(spCur()) : "") }, location.origin);
+  window.parent.postMessage({ type: "cms:ready", page: (location.pathname.split("/").pop() || "index.html") + (PAGE === "page" && spCur() ? "?p=" + encodeURIComponent(spCur()) : MNT_Q ? "?maintenance=1" : "") }, location.origin);
   render();
 } else {
   const CKEY = "site-content:" + location.pathname.replace(/[^/]*$/, "");
