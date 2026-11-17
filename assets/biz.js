@@ -282,13 +282,16 @@ function heroPanel() {
   </div>`;
 }
 function heroHTML() {
-  const H = C.hero, im = imgUrl(H.image);
-  const media = im ? `<div class="hero-media" data-edit="hero.image"><img src="${esc(im)}" alt=""></div>` : (H.panel || {}).show === false ? "" : `<div class="hero-media none" data-edit="hero.panel.show">${heroPanel()}</div>`;
+  const H = C.hero, vid = imgUrl(H.video), im = imgUrl(H.image);
+  // A hero video plays silently on a loop in the picture's place (the picture is its cover); still for visitors who asked for less motion.
+  const film = vid ? `<video src="${esc(vid)}"${im ? ` poster="${esc(im)}"` : ""}${matchMedia("(prefers-reduced-motion: reduce)").matches ? "" : " autoplay"} muted loop playsinline aria-hidden="true"></video>` : "";
+  const media = vid ? `<div class="hero-media" data-edit="hero.video">${film}</div>` : im ? `<div class="hero-media" data-edit="hero.image"><img src="${esc(im)}" alt=""></div>` : (H.panel || {}).show === false ? "" : `<div class="hero-media none" data-edit="hero.panel.show">${heroPanel()}</div>`;
   const badges = (H.badges || []).filter(Boolean).length ? `<ul class="badges">${H.badges.filter(Boolean).map((b) => `<li>${icon("shield", "bi")}${esc(b)}</li>`).join("")}</ul>` : "";
-  return `<section class="hero${im ? " has-img" : ""}" id="hero">${C.theme.layout === "full" && im ? `<div class="hero-bg" data-edit="hero.image" style="background-image:url('${esc(im)}')"></div>` : ""}
+  const pic = im || vid;
+  return `<section class="hero${pic ? " has-img" : ""}" id="hero">${C.theme.layout === "full" && pic ? `<div class="hero-bg" data-edit="${vid ? "hero.video" : "hero.image"}"${im ? ` style="background-image:url('${esc(im)}')"` : ""}>${film}</div>` : ""}
     <div class="wrap hero-in"><div class="hero-text">${H.eyebrow ? `<p class="eyebrow">${esc(H.eyebrow)}</p>` : ""}<h1 class="h1 fit">${rich(H.title)}</h1>${H.lede ? `<p class="hero-lede">${rich(H.lede)}</p>` : ""}
       <div class="cta-row">${btn(H.ctaPrimary, H.ctaPrimaryTarget)}${btn(H.ctaSecondary, H.ctaSecondaryTarget, "sec")}</div>${badges}</div>
-      ${C.theme.layout === "full" && im ? "" : media}</div></section>`;
+      ${C.theme.layout === "full" && pic ? "" : media}</div></section>`;
 }
 function clientsHTML() {
   const L = C.clients.logos.filter((l) => l.name || l.logo);
@@ -452,8 +455,8 @@ function logoCss(def) {
   return B.logoFit === "wide" ? `height:${h}px;width:auto;max-width:min(${h * 6}px,52vw);object-fit:contain;border-radius:0` : `width:${h}px;height:${h}px${h !== def ? `;font-size:${Math.round(h * 0.36)}px` : ""}`;
 }
 function heroLogo() {
-  const B = C.brand, src = PAGE === "home" && B.logoOnHero ? imgUrl(B.logo) : "";
-  if (window.SiteLogo) window.SiteLogo.hero(src, { at: "#hero h1", size: B.heroLogoSize, radius: C.theme.logoRadius, wide: B.logoFit === "wide", edit: "brand.logo" });
+  const B = C.brand, on = PAGE === "home" && B.logoOnHero, src = on ? imgUrl(B.logo) : "";
+  if (window.SiteLogo) window.SiteLogo.hero(src, { video: on ? imgUrl(B.logoVideo) : "", at: "#hero h1", size: B.heroLogoSize, radius: C.theme.logoRadius, wide: B.logoFit === "wide", edit: "brand.logo" });
 }
 function navHTML() {
   const B = C.brand, logo = imgUrl(B.logo);
@@ -463,7 +466,7 @@ function navHTML() {
   if (swOn() && C.warranty.inNav) items.push({ label: C.warranty.navLabel || "Warranty", url: multi() ? PAGES.warranty : "#warranty", on: PAGE === "warranty" });
   spList().filter((p) => p.inNav).forEach((p) => items.push({ label: p.navLabel || p.title, url: spHref(p), on: PAGE === "page" && spSlug(p) === spSlug({ slug: spCur() }) }));
   return `<header class="nav" id="top"><div class="wrap nav-in">
-      <a class="brand" href="${multi() || PAGE !== "home" ? PAGES.home : "#top"}">${logo ? `<img class="logo" src="${esc(logo)}" alt="" style="${logoCss(36)}">` : `<span class="logo mark" style="${logoCss(36).replace(/height:(\d+)px;width:auto.*/, "width:$1px;height:$1px")}">${esc(initials(B.name))}</span>`}${B.showName !== false ? `<span class="bn">${esc(B.name)}</span>` : ""}</a>
+      <a class="brand" href="${multi() || PAGE !== "home" ? PAGES.home : "#top"}">${imgUrl(B.logoVideo) ? `<video class="logo" src="${esc(imgUrl(B.logoVideo))}"${logo ? ` poster="${esc(logo)}"` : ""} autoplay muted loop playsinline aria-hidden="true" style="${logoCss(36)}"></video>` : logo ? `<img class="logo" src="${esc(logo)}" alt="" style="${logoCss(36)}">` : `<span class="logo mark" style="${logoCss(36).replace(/height:(\d+)px;width:auto.*/, "width:$1px;height:$1px")}">${esc(initials(B.name))}</span>`}${B.showName !== false ? `<span class="bn">${esc(B.name)}</span>` : ""}</a>
       <nav class="links" aria-label="Main">${items.map((i) => `<a href="${esc(i.url)}"${i.on ? ' aria-current="page"' : ""}>${esc(i.label)}</a>`).join("")}</nav>
       ${C.nav.cta ? `<a class="btn pri nav-cta" href="${esc(href(C.nav.ctaTarget || "contact"))}">${esc(C.nav.cta)}</a>` : ""}
       <button class="burger" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Menu"><span></span><span></span></button></div>
@@ -663,7 +666,7 @@ let slP, slGen = 0;
 function slides() {
   const S = C.hero.slides, g = ++slGen, host = $("#hero");
   const H = document.documentElement;
-  if (!host || !S || !S.enabled || !(S.items || []).some((x) => x && x.image)) { if (window.SiteSlides) window.SiteSlides.stop(); H.classList.remove("hs-top", "hs-top-light"); return; }
+  if (!host || !S || !S.enabled || !(S.items || []).some((x) => x && (x.image || x.video))) { if (window.SiteSlides) window.SiteSlides.stop(); H.classList.remove("hs-top", "hs-top-light"); return; }
   (slP ||= new Promise((ok, no) => { if (window.SiteSlides) return ok(window.SiteSlides); const s = document.createElement("script"); s.src = "assets/slides.js"; s.onload = () => ok(window.SiteSlides); s.onerror = no; document.head.appendChild(s); }))
     .then((w) => {
       if (g !== slGen) return;
@@ -758,6 +761,8 @@ if (PREVIEW) {
   const CKEY = "site-content:" + location.pathname.replace(/[^/]*$/, "");
   let shownTxt = "";
   try { const c = sessionStorage.getItem(CKEY); if (c) { C = merge(DEFAULT, JSON.parse(c)); render(); shownTxt = c; } } catch (e) {}
+  // A first visit: the page's outline shows while the content is fetched (the first render replaces it).
+  if (!shownTxt && window.SiteSkeleton) window.SiteSkeleton.show($("#app"));
   const giveUp = setTimeout(() => { if (!shownTxt) { render(); shownTxt = "default"; } }, 6000);
   const fromFile = () => fetch("content.json", { cache: "no-store" }).then((r) => (r.ok ? r.text() : null));
   // Hosted on the Studio's Cloudflare database: content is a public file there.
