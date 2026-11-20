@@ -4,6 +4,10 @@
    settings), otherwise it opens the visitor's email app addressed to the business. */
 (() => {
 "use strict";
+/* Code Update (content.code): when a site runs its own copy of this code, SiteCode (fx.js) takes the page over before
+   anything is drawn. Inside that copy SiteCode is empty, so the copy never hands over again. */
+const SC = typeof SiteCode === "undefined" || !SiteCode ? null : SiteCode;
+if (SC) SC.track();
 
 /* ============================================================
    DEFAULT CONTENT (also exported as content.json)
@@ -13,7 +17,7 @@ const DEFAULT = {
     bg: "#F7F8FA", surface: "#FFFFFF", deep: "#0E1B2C", text: "#0E1B2C", soft: "#5A6678", line: "#DDE2EA", c1: "#1D4ED8", c2: "#0E7490", c3: "#F59E0B",
     fontDisplay: "Plus Jakarta Sans", fontBody: "Inter", radius: 12, preset: "biz-meridian",
     layout: "split", nav: "bar", cards: "outline", buttons: "rounded", heading: "normal", shead: "label", pattern: "none", width: "normal", motionStyle: "rise", bands: "soft", heroArt: "panel",
-    cursor: "none", loader: "none", textfx: "none", hoverfx: "none", scrollfx: "none", overlay: "none",
+    cursor: "none", loader: "none", textfx: "none", hoverfx: "none", scrollfx: "none", overlay: "none", herofx: "none",
     introBg: "", introFg: "", introTitle: "", introFont: "display", introCase: "upper", logoRadius: 22, scrollEase: "light", lineBreaks: "typed",
   },
   cms: { adminPage: "admin" },
@@ -256,12 +260,13 @@ function applyTheme(t) {
   r.setProperty("--fd", `"${t.fontDisplay}",Georgia,serif`); r.setProperty("--fb", `"${t.fontBody}","Helvetica Neue",Arial,sans-serif`);
   if (window.SiteFonts) { const cd = SiteFonts.use(t, "display", imgUrl), cb = SiteFonts.use(t, "body", imgUrl); if (cd) r.setProperty("--fd", `"${cd}","${t.fontDisplay}",Georgia,serif`); if (cb) r.setProperty("--fb", `"${cb}","${t.fontBody}","Helvetica Neue",Arial,sans-serif`); }
   const d = document.documentElement.dataset;
-  for (const k of ["layout", "heroArt", "nav", "cards", "buttons", "motionStyle", "pattern", "heading", "shead", "width", "bands", "cursor", "loader", "textfx", "hoverfx", "scrollfx", "overlay"]) d[k] = String(t[k] || "");
+  for (const k of ["layout", "heroArt", "nav", "cards", "buttons", "motionStyle", "pattern", "heading", "shead", "width", "bands", "cursor", "loader", "textfx", "hoverfx", "scrollfx", "overlay", "herofx"]) d[k] = String(t[k] || "");
   d.scrollease = t.scrollEase || "light"; d.linebreaks = t.lineBreaks || "typed"; d.menu = String(t.navMode || ""); d.menumob = String(t.navModeMob || "");
   d.crumbs = (C.site || {}).crumbs === false ? "off" : "on"; d.introfont = t.introFont || "display"; d.introcase = t.introCase || "upper"; d.dark = String(onColor(t.bg) === "#FFFFFF");
+  const FOK = !(window.SiteFX && window.SiteFX.fontsOk) || window.SiteFX.fontsOk(C); // Google Fonts wait for consent when the site says so
   [[FONTS[t.fontDisplay], "fontlink"], [FONTS[t.fontBody], "fontlink2"]].forEach(([f, id]) => {
     let l = document.getElementById(id); if (!l) { l = document.createElement("link"); l.id = id; l.rel = "stylesheet"; document.head.appendChild(l); }
-    const h = f ? "https://fonts.googleapis.com/css2?family=" + f + "&display=swap" : ""; if (h && l.getAttribute("href") !== h) l.setAttribute("href", h);
+    const h = f && FOK ? "https://fonts.googleapis.com/css2?family=" + f + "&display=swap" : ""; if (h && l.getAttribute("href") !== h) l.setAttribute("href", h); if (!FOK) l.removeAttribute("href");
   });
   if (!PREVIEW) try { localStorage.setItem("site-fonts:" + location.pathname.replace(/[^/]*$/, ""), JSON.stringify(["fontlink", "fontlink2"].map((id) => [id, (document.getElementById(id) || {}).href || ""]))); } catch (e) {}
 }
@@ -386,7 +391,7 @@ function contactHTML() {
       ${F.askService || F.askBudget ? `<div class="row2">${F.askService && svc.length ? field("service", "Interested in", `<select id="f-service" name="service"><option value="">Choose…</option>${svc.map((s) => `<option>${esc(s)}</option>`).join("")}<option>Something else</option></select>`) : ""}${F.askBudget && (F.budgets || []).length ? field("budget", "Budget", `<select id="f-budget" name="budget"><option value="">Choose…</option>${F.budgets.map((b) => `<option>${esc(b)}</option>`).join("")}</select>`) : ""}</div>` : ""}
       ${field("message", "How can we help?", `<textarea id="f-message" name="message" rows="5" required></textarea>`, 1)}
       <input class="hp-f" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-      ${F.consent ? `<label class="consent"><input type="checkbox" name="consent" required> <span>${esc(F.consent)}</span></label>` : ""}
+      ${consentWords(F.consent) ? `<label class="consent"><input type="checkbox" name="consent" required> <span>${esc(consentWords(F.consent))}</span></label>` : ""}
       <p class="form-msg" role="status" aria-live="polite"></p>
       <button class="btn pri" type="submit">${esc(F.submit || "Send")} ${arrow}</button></form>` : "";
   return `<section class="contact band" id="contact"><div class="wrap">${head(K)}<div class="contact-grid">
@@ -582,6 +587,9 @@ function video() {
     .then(() => window.SiteVideo.mount(C, { sections: "#main > section", home: PAGE === "home", imgUrl })).catch(() => {});
 }
 /** The footer's link that reopens the consent choices (while the banner is on). */
+/* Legal & privacy: the privacy policy's address, and the words of the consent tick box on forms (content.privacy). */
+const policyUrl = () => { const K = C.consent || {}; if (safeUrl(K.policyUrl)) return safeUrl(K.policyUrl); const L = spList(), p = L.find((x) => x.id === K.policyPage) || L.find((x) => x.id === "pg-privacy" || /privacy/i.test(String(x.title || ""))); return p ? spHref(p) : ""; };
+const consentWords = (own) => String(own || "").trim() || ((C.privacy || {}).formConsent === false ? "" : String((C.privacy || {}).formText || "").trim() || "I agree to my details being used to respond to me, as described in the Privacy policy.");
 const ckOn = () => !!(C.consent && C.consent.on && C.consent.footerLink !== false);
 /* Regional languages (assets/lang.js): the chosen language is put into the content before the page is drawn, then
    the page's fixed wording is translated and the language switcher added. */
@@ -656,11 +664,12 @@ function render() {
   const ids = special ? [] : multi() ? (PAGE === "home" ? C.sections.map((s) => s.id).filter((id) => PAGE_SECTIONS.home.includes(id)) : PAGE_SECTIONS[PAGE]) : C.sections.map((s) => s.id).filter((id) => !solo.has(id));
   const body = special ? special() : ids.filter((id) => RENDER[id] && shown(id)).map((id) => RENDER[id]()).join("");
   $("#app").innerHTML = `<a class="skip" href="#main">Skip to content</a>${navHTML()}<main id="main">${multi() && !special && PAGE !== "home" ? pageHead() : ""}${body}</main>${footerHTML()}`;
+  if (SC && SC.drawn) SC.drawn($("#app"), C);
   bind();
   if (PAGE === "warranty") swMount();
   if (PAGE === "page" && window.SitePages) window.SitePages.after(window.SitePages.find(C, spCur(), PREVIEW));
   slides(); heroLogo(); video(); social(); menu(); lang(); consent(); addons(); festival();
-  if (window.SiteFX) try { window.SiteFX.init({ root: $("#app"), brand: C.theme.introTitle || C.brand.name, badge: C.poweredBy }); } catch (e) {}
+  if (window.SiteFX) try { window.SiteFX.init({ root: $("#app"), brand: C.theme.introTitle || C.brand.name, badge: C.poweredBy, bgs: C.sectionBg, asset: imgUrl, fonts: FONTS, c: C, policy: policyUrl(), again: render }); } catch (e) {}
 }
 
 /* ============================================================
@@ -730,12 +739,15 @@ function backend() {
   if (/^https:\/\//.test(F.sbUrl || "") && F.sbKey && F.site) return { url: String(F.sbUrl).replace(/\/+$/, ""), key: F.sbKey, site: F.site };
   return null;
 }
+let FORM_T0 = 0; // when the page was last drawn (performance.now)
 async function submit(e) {
   e.preventDefault();
   const f = e.currentTarget, msg = $(".form-msg", f), btnEl = $("button[type=submit]", f);
   const data = Object.fromEntries(new FormData(f).entries());
-  if (data.website) return; // spam trap
-  delete data.website; data.consent = data.consent ? "yes" : "";
+  // spam traps: the hidden box only robots fill in; and the time since the page opened goes with the entry (the database drops one sent faster than anyone types)
+  const guard = (C.privacy || {}).spam !== false, took = Math.max(1600, Math.round(performance.now() - FORM_T0));
+  if (data.website) return;
+  delete data.website; data.consent = data.consent ? "Agreed on " + new Date().toISOString() + ": " + consentWords(C.contact.form.consent) : "";
   const bad = [...f.querySelectorAll("[required]")].find((i) => (i.type === "checkbox" ? !i.checked : !String(i.value).trim()) || (i.type === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(i.value)));
   if (bad) { msg.className = "form-msg bad"; msg.textContent = bad.type === "email" ? "Please enter a valid email address." : "Please fill in the required fields."; bad.focus(); return; }
   if (PREVIEW) { msg.className = "form-msg ok"; msg.textContent = "Preview: the form works on the live site. " + (backend() ? (backend().file ? "Enquiries are saved as JSON files and listed under Enquiries in the admin page. No email is sent." : "Enquiries are saved to Enquiries in the admin page.") : C.contact.form.saveTo === "file" ? "Set up the enquiry inbox in the Studio, then publish." : "It opens the visitor's email app addressed to " + (C.contact.email || "your email") + "."); return; }
@@ -748,7 +760,7 @@ async function submit(e) {
       if (!r.ok) throw new Error("save " + r.status);
       f.reset(); msg.className = "form-msg ok"; msg.textContent = C.contact.form.success || "Thank you. We'll be in touch.";
     } else if (cfg && cfg.cf) {
-      const r = await fetch(cfg.cf + "/enquire/" + encodeURIComponent(cfg.site), { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ data, page: location.pathname }) });
+      const r = await fetch(cfg.cf + "/enquire/" + encodeURIComponent(cfg.site), { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ data, page: location.pathname, ...(guard ? { took } : {}) }) });
       if (!r.ok) throw new Error("save " + r.status);
       f.reset(); msg.className = "form-msg ok"; msg.textContent = C.contact.form.success || "Thank you. We'll be in touch.";
     } else if (cfg) {
@@ -771,34 +783,37 @@ async function submit(e) {
 /* ============================================================
    BOOT
    ============================================================ */
+const SCO = { css: 'link[href*="assets/biz.css"]', js: "assets/biz.js" }; let DREW = false, HAND = false;
 if (PREVIEW) {
   addEventListener("message", (e) => {
     if (e.origin !== location.origin || e.source !== window.parent) return;
     const d = e.data || {};
-    if (d.type === "cms:content" && d.content && typeof d.content === "object") { ASSETS = d.assets || {}; const y = scrollY; C = merge(DEFAULT, d.content); render(); scrollTo(0, y); }
+    if (d.type === "cms:content" && d.content && typeof d.content === "object") { if (SC && SC.take(d.content, { ...SCO, drawn: DREW })) return; DREW = true; ASSETS = d.assets || {}; const y = scrollY; C = merge(DEFAULT, d.content); render(); scrollTo(0, y); }
   });
   window.parent.postMessage({ type: "cms:ready", page: (location.pathname.split("/").pop() || "index.html") + (PAGE === "page" && spCur() ? "?p=" + encodeURIComponent(spCur()) : MNT_Q ? "?maintenance=1" : "") }, location.origin);
-  render();
+  if (!(SC && SC.wait())) { DREW = true; render(); }
 } else {
   const CKEY = "site-content:" + location.pathname.replace(/[^/]*$/, "");
   let shownTxt = "";
-  try { const c = sessionStorage.getItem(CKEY); if (c) { C = merge(DEFAULT, JSON.parse(c)); render(); shownTxt = c; } } catch (e) {}
+  try { const c = sessionStorage.getItem(CKEY); if (c) { const j = JSON.parse(c); if (SC && SC.take(j, SCO)) HAND = true; else { C = merge(DEFAULT, j); render(); shownTxt = c; } } } catch (e) {}
   // A first visit: the page's outline shows while the content is fetched (the first render replaces it).
-  if (!shownTxt && window.SiteSkeleton) window.SiteSkeleton.show($("#app"));
-  const giveUp = setTimeout(() => { if (!shownTxt) { render(); shownTxt = "default"; } }, 6000);
+  if (!shownTxt && !HAND && window.SiteSkeleton) window.SiteSkeleton.show($("#app"));
+  const giveUp = setTimeout(() => { if (!shownTxt && !HAND) { render(); shownTxt = "default"; } }, 6000);
   const fromFile = () => fetch("content.json", { cache: "no-store" }).then((r) => (r.ok ? r.text() : null));
   // Hosted on the Studio's Cloudflare database: content is a public file there.
   const fromCf = () => fetch(HOST.api + "/p/" + encodeURIComponent(HOST.site) + "/content.json", { cache: "no-store" }).then((r) => (r.ok ? r.text() : null)).catch(() => null).then((t) => t || fromFile());
   const fromDb = () => HOST.api ? fromCf() : fetch(HOST.db + "/rest/v1/site_content?select=content&site=eq." + encodeURIComponent(HOST.site), { cache: "no-store", headers: { apikey: HOST.key, ...(/^sb_/.test(HOST.key) ? {} : { Authorization: "Bearer " + HOST.key }) } })
     .then((r) => (r.ok ? r.json() : null)).then((j) => (j && j[0] && j[0].content ? JSON.stringify(j[0].content) : null)).catch(() => null).then((t) => t || fromFile());
-  (HOST ? fromDb() : fromFile()).then((txt) => {
+  if (!HAND) (HOST ? fromDb() : fromFile()).then((txt) => {
     clearTimeout(giveUp);
     if (!txt) { if (!shownTxt) render(); return; }
     try { sessionStorage.setItem(CKEY, txt); } catch (e) {}
     if (txt === shownTxt) return;
-    C = merge(DEFAULT, JSON.parse(txt)); render();
+    const j = JSON.parse(txt); if (SC && SC.take(j, { ...SCO, drawn: !!shownTxt, text: txt })) return;
+    C = merge(DEFAULT, j); render();
   }).catch(() => { clearTimeout(giveUp); if (!shownTxt) render(); });
 }
+if (SC) SC.untrack();
 })();
 
 // Menu when scrolling (theme.navMode; theme.navModeMob for phones): "" theme default, fixed, hide (hide on scroll down, show on scroll up), scroll (scrolls away)
