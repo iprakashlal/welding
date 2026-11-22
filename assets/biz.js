@@ -17,7 +17,7 @@ const DEFAULT = {
     bg: "#F7F8FA", surface: "#FFFFFF", deep: "#0E1B2C", text: "#0E1B2C", soft: "#5A6678", line: "#DDE2EA", c1: "#1D4ED8", c2: "#0E7490", c3: "#F59E0B",
     fontDisplay: "Plus Jakarta Sans", fontBody: "Inter", radius: 12, preset: "biz-meridian",
     layout: "split", nav: "bar", cards: "outline", buttons: "rounded", heading: "normal", shead: "label", pattern: "none", width: "normal", motionStyle: "rise", bands: "soft", heroArt: "panel",
-    cursor: "none", loader: "none", textfx: "none", hoverfx: "none", scrollfx: "none", overlay: "none", herofx: "none",
+    cursor: "none", loader: "none", textfx: "none", hoverfx: "none", scrollfx: "none", overlay: "none", herofx: "none", loaderOn: "both",
     introBg: "", introFg: "", introTitle: "", introFont: "display", introCase: "upper", logoRadius: 22, scrollEase: "light", lineBreaks: "typed",
   },
   cms: { adminPage: "admin" },
@@ -260,7 +260,7 @@ function applyTheme(t) {
   r.setProperty("--fd", `"${t.fontDisplay}",Georgia,serif`); r.setProperty("--fb", `"${t.fontBody}","Helvetica Neue",Arial,sans-serif`);
   if (window.SiteFonts) { const cd = SiteFonts.use(t, "display", imgUrl), cb = SiteFonts.use(t, "body", imgUrl); if (cd) r.setProperty("--fd", `"${cd}","${t.fontDisplay}",Georgia,serif`); if (cb) r.setProperty("--fb", `"${cb}","${t.fontBody}","Helvetica Neue",Arial,sans-serif`); }
   const d = document.documentElement.dataset;
-  for (const k of ["layout", "heroArt", "nav", "cards", "buttons", "motionStyle", "pattern", "heading", "shead", "width", "bands", "cursor", "loader", "textfx", "hoverfx", "scrollfx", "overlay", "herofx"]) d[k] = String(t[k] || "");
+  for (const k of ["layout", "heroArt", "nav", "cards", "buttons", "motionStyle", "pattern", "heading", "shead", "width", "bands", "cursor", "loader", "textfx", "hoverfx", "scrollfx", "overlay", "herofx", "loaderOn"]) d[k] = String(t[k] || "");
   d.scrollease = t.scrollEase || "light"; d.linebreaks = t.lineBreaks || "typed"; d.menu = String(t.navMode || ""); d.menumob = String(t.navModeMob || "");
   d.crumbs = (C.site || {}).crumbs === false ? "off" : "on"; d.introfont = t.introFont || "display"; d.introcase = t.introCase || "upper"; d.dark = String(onColor(t.bg) === "#FFFFFF");
   const FOK = !(window.SiteFX && window.SiteFX.fontsOk) || window.SiteFX.fontsOk(C); // Google Fonts wait for consent when the site says so
@@ -650,6 +650,7 @@ function maintGate(again) {
     }).catch(() => { mntPass = true; again(); });
   return true;
 }
+let lastHtml = "", drawn = false;
 function render() {
   // A several-page link opened while the site is one page goes to that section.
   // A section's own page: only while its link still says so; otherwise the visitor goes to that section on the main page.
@@ -663,7 +664,12 @@ function render() {
   const solo = soloSections();
   const ids = special ? [] : multi() ? (PAGE === "home" ? C.sections.map((s) => s.id).filter((id) => PAGE_SECTIONS.home.includes(id)) : PAGE_SECTIONS[PAGE]) : C.sections.map((s) => s.id).filter((id) => !solo.has(id));
   const body = special ? special() : ids.filter((id) => RENDER[id] && shown(id)).map((id) => RENDER[id]()).join("");
-  $("#app").innerHTML = `<a class="skip" href="#main">Skip to content</a>${navHTML()}<main id="main">${multi() && !special && PAGE !== "home" ? pageHead() : ""}${body}</main>${footerHTML()}`;
+  const html = `<a class="skip" href="#main">Skip to content</a>${navHTML()}<main id="main">${multi() && !special && PAGE !== "home" ? pageHead() : ""}${body}</main>${footerHTML()}`;
+  /* A redraw that gives what is already on screen is skipped, and one that lands while the entrance is still running carries on from where it was: both used to make the page blink. */
+  if (!PREVIEW && html === lastHtml && $("#app").firstChild) return;
+  lastHtml = html; const pend = drawn ? new Set($$(".rv").map((e, i) => (e.classList.contains("in") ? -1 : i))) : null; drawn = true;
+  $("#app").innerHTML = html;
+  if (pend) $$(".rv").forEach((e, i) => { if (!pend.has(i)) e.classList.add("in"); });
   if (SC && SC.drawn) SC.drawn($("#app"), C);
   bind();
   if (PAGE === "warranty") swMount();
