@@ -46,9 +46,15 @@
     "name": "Ram Welding",
     "tagline": "Quality welding solutions for a stronger tomorrow",
     "logo": null,
-    "showName": true
+    "showName": true,
+    "logoFit": "square",
+    "logoSize": 36,
+    "logoOnHero": false,
+    "heroLogoSize": 72,
+    "logoVideo": null
   },
   "site": {
+    "crumbs": true,
     "multiPage": false,
     "pageLabels": {
       "home": "Home",
@@ -143,6 +149,12 @@
       "inNav": false
     },
     {
+      "id": "wall",
+      "label": "Social wall",
+      "show": false,
+      "inNav": false
+    },
+    {
       "id": "contact",
       "label": "Contact",
       "show": true,
@@ -168,7 +180,7 @@
       "items": [
         {
           "image": {
-            "path": "assets/uploads/1794642669973-new-banner-1.webp"
+            "path": "assets/uploads/1795725068452-unsplash-4.jpg"
           },
           "position": "center",
           "title": "",
@@ -176,7 +188,7 @@
         },
         {
           "image": {
-            "path": "assets/uploads/1794642692744-new-banner-1.webp"
+            "path": "assets/uploads/1795725114326-unsplash-2.jpg"
           },
           "position": "center",
           "title": "",
@@ -194,7 +206,19 @@
       "dots": false,
       "arrows": false,
       "pause": true,
-      "hideArt": false
+      "hideArt": false,
+      "artOpacity": 100
+    },
+    "panel": {
+      "show": true,
+      "source": "auto",
+      "aLabel": "",
+      "aValue": "",
+      "bars": true,
+      "rows": [],
+      "cLabel": "",
+      "cValue": "",
+      "dot": true
     }
   },
   "clients": {
@@ -530,7 +554,11 @@
       "fileUrl": "",
       "sbUrl": "",
       "sbKey": "",
-      "site": ""
+      "site": "",
+      "notify": true,
+      "notifyAsk": 1,
+      "notifyTo": "",
+      "notifySubject": ""
     }
   },
   "footer": {
@@ -1121,6 +1149,671 @@
             "value": "80A"
           }
         ]
+      }
+    ]
+  },
+  "addons": {
+    "chat": {
+      "on": false,
+      "kind": "whatsapp",
+      "value": "",
+      "label": "Chat with us",
+      "message": "",
+      "side": "right",
+      "showLabel": true,
+      "color": ""
+    },
+    "badge": {
+      "on": false,
+      "text": "",
+      "api": "",
+      "field": "",
+      "link": "",
+      "side": "left"
+    },
+    "code": [],
+    "api": {
+      "on": false,
+      "url": ""
+    }
+  },
+  "emails": {
+    "signin": {
+      "subject": "",
+      "intro": "",
+      "footer": ""
+    },
+    "enquiry": {
+      "intro": "",
+      "footer": ""
+    },
+    "reply": {
+      "on": false,
+      "subject": "",
+      "message": "",
+      "copy": false
+    }
+  },
+  "festival": {
+    "v": 2,
+    "on": true,
+    "style": "both",
+    "position": "top",
+    "lead": "2",
+    "signoff": true,
+    "preview": "",
+    "items": [
+      {
+        "id": "new-year",
+        "name": "New Year",
+        "on": true,
+        "from": "",
+        "to": "",
+        "message": ""
+      },
+      {
+        "id": "lohri",
+        "name": "Lohri",
+        "on": true,
+        "from": "",
+        "to": "",
+        "message": ""
+      },
+      {
+        "id": "sankranti",
+        "name": "Makar Sankranti / Pongal",
+        "on": true,
+        "from": "",
+        "to": "",
+        "message": ""
+      },
+      {
+        "id": "republic-day",
+        "name": "Republic Day",
+        "on": true,
+        "from": "",
+        "to": "",
+        "message": ""
+      },
+      {
+        "id": "shivratri",
+        "name": "Maha Shivratri",
+        "on": true,
+        "from": "",
+        "to": "",
+        "message": ""
+      },
+      {
+        "id": "holi",
+        "name": "Holi",
+        "on": true,
+        "from": "",
+        "to": "",
+        "message": ""
+      },
+      {
+        "id": "eid-fitr",
+        "name": "Eid ul-Fitr",
+        "on": true,
+        "from": "",
+        "to": "",
+        "message": ""
+      },
+      {
+        "id": "ugadi",
+        "name": "Ugadi / Gudi Padwa",
+        "on": true,
+        "from": "",
+        "to": "",
+        "message": ""
+      },
+      {
+        "id": "baisakhi",
+        "name": "Baisakhi / Vishu / Tamil New Year",
+        "on": true,
+        "from": "",
+        "to": "",
+        "message": ""
+      },
+      {
+        "id": "ram-navami",
+        "name": "Ram Navami",
+        "on": true,
+        "from": "",
+        "to": "",
+        "message": ""
+      },
+      {
+        "id": "easter",
+        "name": "Good Friday and Easter",
+        "on": true,
+        "from": "",
+        "to": "",
+        "message": ""
+      },
+      {
+        "id": "eid-adha",
+        "name": "Eid ul-Adha (Bakrid)",
+        "on": true,
+        "from": "",
+        "to": "",
+        "message": ""
+      },
+      {
+        "id": "buddha-purnima",
+        "name": "Buddha Purnima",
+        "on": true,
+        "from": "",
+        "to": "",
+        "message": ""
+      },
+      {
+        "id": "independence-day",
+        "name": "Independence Day",
+        "on": true,
+        "from": "",
+        "to": "",
+        "message": ""
+      },
+      {
+        "id": "raksha-bandhan",
+        "name": "Raksha Bandhan",
+        "on": true,
+        "from": "",
+        "to": "",
+        "message": ""
+      },
+      {
+        "id": "janmashtami",
+        "name": "Janmashtami",
+        "on": true,
+        "from": "",
+        "to": "",
+        "message": ""
+      },
+      {
+        "id": "ganesh-chaturthi",
+        "name": "Ganesh Chaturthi",
+        "on": true,
+        "from": "",
+        "to": "",
+        "message": ""
+      },
+      {
+        "id": "onam",
+        "name": "Onam",
+        "on": true,
+        "from": "",
+        "to": "",
+        "message": ""
+      },
+      {
+        "id": "gandhi-jayanti",
+        "name": "Gandhi Jayanti",
+        "on": true,
+        "from": "",
+        "to": "",
+        "message": ""
+      },
+      {
+        "id": "navratri",
+        "name": "Navratri and Dussehra",
+        "on": true,
+        "from": "",
+        "to": "",
+        "message": ""
+      },
+      {
+        "id": "diwali",
+        "name": "Diwali",
+        "on": true,
+        "from": "",
+        "to": "",
+        "message": ""
+      },
+      {
+        "id": "guru-nanak",
+        "name": "Guru Nanak Jayanti",
+        "on": true,
+        "from": "",
+        "to": "",
+        "message": ""
+      },
+      {
+        "id": "christmas",
+        "name": "Christmas",
+        "on": true,
+        "from": "",
+        "to": "",
+        "message": ""
+      }
+    ],
+    "custom": []
+  },
+  "consent": {
+    "on": false,
+    "wording": "auto",
+    "try": "",
+    "india": {
+      "title": "Your consent matters",
+      "text": "We use cookies and similar tools to run this website and, with your consent, to understand how it is used and to show you relevant offers. We use your personal data only for the purposes listed here, in line with India's Digital Personal Data Protection Act, 2023. You can withdraw your consent at any time from “Cookie settings”.",
+      "accept": "Accept all",
+      "decline": "Decline",
+      "manage": "Choose purposes",
+      "save": "Save my choices",
+      "extra": "To see, correct or erase your data, or to raise a grievance, contact us using the details on this site. You may also approach the Data Protection Board of India."
+    },
+    "intl": {
+      "title": "We value your privacy",
+      "text": "We use cookies and similar technologies. Necessary ones make the site work. With your permission we also use them to measure visits and to personalise content and ads. You can accept all, reject the non-essential ones or choose by category, and change your mind at any time in “Cookie settings”.",
+      "accept": "Accept all",
+      "decline": "Reject non-essential",
+      "manage": "Manage preferences",
+      "save": "Save preferences",
+      "extra": ""
+    },
+    "policyLabel": "Privacy policy",
+    "policyPage": "",
+    "policyUrl": "",
+    "categories": [
+      {
+        "id": "necessary",
+        "label": "Strictly necessary",
+        "text": "Needed for the site to work: your choices here, your cart and signing in. Always on.",
+        "on": true
+      },
+      {
+        "id": "analytics",
+        "label": "Analytics",
+        "text": "Help us count visits and see which pages are used, so we can improve the site.",
+        "on": true
+      },
+      {
+        "id": "marketing",
+        "label": "Marketing",
+        "text": "Used to show relevant ads and measure campaigns, on this site and others.",
+        "on": true
+      },
+      {
+        "id": "preferences",
+        "label": "Preferences",
+        "text": "Remember settings such as language or region, and run extras like chat boxes and embedded videos.",
+        "on": true
+      }
+    ],
+    "mode": "optin",
+    "showDecline": true,
+    "showManage": true,
+    "equal": true,
+    "closeX": false,
+    "lock": false,
+    "layout": "bar",
+    "position": "bottom",
+    "side": "left",
+    "look": "theme",
+    "months": "6",
+    "version": 1,
+    "reopen": true,
+    "footerLink": true,
+    "reopenLabel": "Cookie settings",
+    "gpc": true,
+    "gcm": false
+  },
+  "video": {
+    "on": false,
+    "url": "",
+    "file": null,
+    "poster": null,
+    "layout": "center",
+    "place": "top",
+    "ratio": "16:9",
+    "eyebrow": "",
+    "title": "",
+    "text": "",
+    "links": [],
+    "auto": false,
+    "controls": true,
+    "round": true
+  },
+  "wall": {
+    "on": false,
+    "network": "instagram",
+    "handle": "",
+    "url": "",
+    "eyebrow": "",
+    "title": "",
+    "text": "",
+    "button": "",
+    "layout": "auto",
+    "cols": "",
+    "shape": "",
+    "captions": "hover",
+    "place": "bottom",
+    "auto": "",
+    "board": "",
+    "count": 12,
+    "items": [],
+    "api": "https://picaffectz-db.picaffectz-studio.workers.dev",
+    "sid": "mwg3ttne2bnfx"
+  },
+  "social": {
+    "on": false,
+    "title": "",
+    "style": "badges",
+    "align": "center",
+    "graphics": "icons",
+    "shape": "circle",
+    "fill": "outline",
+    "size": "m",
+    "items": []
+  },
+  "maintenance": {
+    "on": false,
+    "title": "We'll be back soon",
+    "text": "We're making a few improvements. Please check back in a little while.",
+    "back": "",
+    "button": {
+      "label": "",
+      "url": ""
+    },
+    "contact": "",
+    "look": "page",
+    "showLogo": true
+  },
+  "i18n": {
+    "on": false,
+    "base": {
+      "code": "en",
+      "name": "English"
+    },
+    "langs": [
+      {
+        "code": "hi",
+        "name": "हिन्दी",
+        "on": false
+      },
+      {
+        "code": "mr",
+        "name": "मराठी",
+        "on": false
+      },
+      {
+        "code": "gu",
+        "name": "ગુજરાતી",
+        "on": false
+      },
+      {
+        "code": "pa",
+        "name": "ਪੰਜਾਬੀ",
+        "on": false
+      },
+      {
+        "code": "bn",
+        "name": "বাংলা",
+        "on": false
+      },
+      {
+        "code": "as",
+        "name": "অসমীয়া",
+        "on": false
+      },
+      {
+        "code": "or",
+        "name": "ଓଡ଼ିଆ",
+        "on": false
+      },
+      {
+        "code": "ta",
+        "name": "தமிழ்",
+        "on": false
+      },
+      {
+        "code": "te",
+        "name": "తెలుగు",
+        "on": false
+      },
+      {
+        "code": "kn",
+        "name": "ಕನ್ನಡ",
+        "on": false
+      },
+      {
+        "code": "ml",
+        "name": "മലയാളം",
+        "on": false
+      }
+    ],
+    "t": {},
+    "paths": [
+      "brand.name",
+      "brand.tagline",
+      "site.pageLabels.home",
+      "site.pageLabels.services",
+      "site.pageLabels.products",
+      "site.pageLabels.work",
+      "site.pageLabels.about",
+      "site.pageLabels.contact",
+      "sections.*.label",
+      "nav.cta",
+      "menu.items.*.label",
+      "menu.items.*.children.*.label",
+      "menu.items.*.children.*.children.*.label",
+      "hero.eyebrow",
+      "hero.title",
+      "hero.lede",
+      "hero.ctaPrimary",
+      "hero.ctaSecondary",
+      "hero.badges.*",
+      "hero.panel.aLabel",
+      "hero.panel.aValue",
+      "hero.panel.rows.*.title",
+      "hero.panel.cLabel",
+      "hero.panel.cValue",
+      "hero.slides.items.*.title",
+      "hero.slides.items.*.text",
+      "products.eyebrow",
+      "products.title",
+      "products.lede",
+      "products.all",
+      "products.more",
+      "products.enquire",
+      "products.items.*.name",
+      "products.items.*.category",
+      "products.items.*.price",
+      "products.items.*.badge",
+      "products.items.*.summary",
+      "products.items.*.features.*",
+      "products.items.*.details",
+      "products.items.*.specs.*.label",
+      "products.items.*.specs.*.value",
+      "clients.title",
+      "clients.logos.*.name",
+      "services.eyebrow",
+      "services.title",
+      "services.lede",
+      "services.items.*.title",
+      "services.items.*.body",
+      "services.items.*.points.*",
+      "stats.items.*.value",
+      "stats.items.*.label",
+      "work.eyebrow",
+      "work.title",
+      "work.lede",
+      "work.items.*.title",
+      "work.items.*.client",
+      "work.items.*.sector",
+      "work.items.*.summary",
+      "work.items.*.result",
+      "about.eyebrow",
+      "about.title",
+      "about.body",
+      "about.mission",
+      "about.vision",
+      "about.values.*.title",
+      "about.values.*.body",
+      "process.eyebrow",
+      "process.title",
+      "process.steps.*.title",
+      "process.steps.*.body",
+      "team.eyebrow",
+      "team.title",
+      "team.lede",
+      "team.members.*.name",
+      "team.members.*.role",
+      "testimonials.eyebrow",
+      "testimonials.title",
+      "testimonials.items.*.quote",
+      "testimonials.items.*.name",
+      "testimonials.items.*.role",
+      "testimonials.items.*.company",
+      "pricing.eyebrow",
+      "pricing.title",
+      "pricing.lede",
+      "pricing.plans.*.name",
+      "pricing.plans.*.price",
+      "pricing.plans.*.period",
+      "pricing.plans.*.blurb",
+      "pricing.plans.*.features.*",
+      "pricing.plans.*.cta",
+      "pricing.note",
+      "faq.eyebrow",
+      "faq.title",
+      "faq.items.*.q",
+      "faq.items.*.a",
+      "cta.title",
+      "cta.body",
+      "cta.button",
+      "video.eyebrow",
+      "video.title",
+      "video.text",
+      "video.links.*.label",
+      "wall.board",
+      "wall.eyebrow",
+      "wall.title",
+      "wall.text",
+      "wall.button",
+      "wall.items.*.caption",
+      "social.title",
+      "social.items.*.label",
+      "contact.eyebrow",
+      "contact.title",
+      "contact.lede",
+      "contact.address",
+      "contact.hours",
+      "footer.text",
+      "footer.legal",
+      "footer.links.*.label",
+      "staticPages.*.title",
+      "staticPages.*.subtitle",
+      "staticPages.*.updated",
+      "staticPages.*.body",
+      "staticPages.*.navLabel",
+      "contact.form.title",
+      "contact.form.budgets.*",
+      "contact.form.submit",
+      "contact.form.consent",
+      "contact.form.success",
+      "contact.form.notifySubject",
+      "warranty.title",
+      "warranty.navLabel",
+      "warranty.intro",
+      "warranty.label",
+      "warranty.placeholder",
+      "warranty.verifyLabel",
+      "warranty.button",
+      "warranty.notFound",
+      "warranty.help",
+      "warranty.statuses.*.label",
+      "festival.items.*.message",
+      "seo.title",
+      "seo.titlePattern",
+      "seo.description",
+      "seo.keywords",
+      "seo.author",
+      "seo.googleVerification",
+      "seo.meta.*.name",
+      "seo.meta.*.content",
+      "consent.india.title",
+      "consent.india.text",
+      "consent.india.accept",
+      "consent.india.decline",
+      "consent.india.manage",
+      "consent.india.save",
+      "consent.india.extra",
+      "consent.intl.title",
+      "consent.intl.text",
+      "consent.intl.accept",
+      "consent.intl.decline",
+      "consent.intl.manage",
+      "consent.intl.save",
+      "consent.intl.extra",
+      "consent.policyLabel",
+      "consent.categories.*.label",
+      "consent.categories.*.text",
+      "legal.name",
+      "legal.address",
+      "legal.cin",
+      "privacy.formText",
+      "maintenance.title",
+      "maintenance.text",
+      "maintenance.back",
+      "maintenance.button.label",
+      "maintenance.contact"
+    ],
+    "ui": [],
+    "auto": true,
+    "place": "menu",
+    "preview": ""
+  },
+  "menu": {
+    "custom": false,
+    "hover": true,
+    "arrows": true,
+    "mobileOpen": false,
+    "items": [
+      {
+        "id": "mi-4s5jln",
+        "label": "Services",
+        "show": true,
+        "to": "services",
+        "page": "",
+        "cat": "",
+        "url": "",
+        "newTab": false,
+        "children": []
+      },
+      {
+        "id": "mi-z8flv1",
+        "label": "Products",
+        "show": true,
+        "to": "products",
+        "page": "",
+        "cat": "",
+        "url": "",
+        "newTab": false,
+        "children": []
+      },
+      {
+        "id": "mi-0lm23d",
+        "label": "About",
+        "show": true,
+        "to": "about",
+        "page": "",
+        "cat": "",
+        "url": "",
+        "newTab": false,
+        "children": []
+      },
+      {
+        "id": "mi-bcl3nz",
+        "label": "Contact",
+        "show": true,
+        "to": "contact",
+        "page": "",
+        "cat": "",
+        "url": "",
+        "newTab": false,
+        "children": []
       }
     ]
   }

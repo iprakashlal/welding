@@ -1,13 +1,13 @@
 {
   "template": "business",
   "name": "Ram welding",
-  "version": 6,
+  "version": 7,
   "admin": "admin.html",
-  "exportedAt": "2026-11-26T19:23:26.845Z",
+  "exportedAt": "2026-11-26T20:33:25.202Z",
   "generator": "Site Studio",
   "studioBuild": {
-    "id": "79ebf2d",
-    "at": "2026-11-26T19:12:18.581Z"
+    "id": "5335bd8",
+    "at": "2026-11-26T19:52:41.067Z"
   },
   "badge": "1qt9bdp",
   "menu": {
