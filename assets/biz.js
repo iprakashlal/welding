@@ -150,7 +150,7 @@ const FONTS = {
   "Manrope": "Manrope:wght@400;500;600;700;800", "Instrument Sans": "Instrument+Sans:wght@400;500;600;700", "IBM Plex Sans": "IBM+Plex+Sans:wght@400;500;600;700", "DM Sans": "DM+Sans:wght@400;500;700",
   "Work Sans": "Work+Sans:wght@400;500;600;700", "Inter": "Inter:wght@400;500;600;700;800", "Nunito Sans": "Nunito+Sans:wght@400;600;700", "Karla": "Karla:wght@400;500;700",
   "Lora": "Lora:ital,wght@0,400;0,500;0,600;0,700;1,400", "Source Serif 4": "Source+Serif+4:wght@400;600;700", "Figtree": "Figtree:wght@400;500;600;700", "Plus Jakarta Sans": "Plus+Jakarta+Sans:wght@400;500;600;700;800",
-  "Space Mono": "Space+Mono:wght@400;700", "JetBrains Mono": "JetBrains+Mono:wght@400;500;700", "Mulish": "Mulish:wght@400;600;700",
+  "Space Mono": "Space+Mono:wght@400;700", "Chakra Petch": "Chakra+Petch:wght@400;600;700", "Anton": "Anton", "Alfa Slab One": "Alfa+Slab+One", "Orbitron": "Orbitron:wght@400;600;800", "Quicksand": "Quicksand:wght@400;600;700", "Righteous": "Righteous", "JetBrains Mono": "JetBrains+Mono:wght@400;500;700", "Mulish": "Mulish:wght@400;600;700",
 };
 
 /* Line icons for services (24px grid, stroke = currentColor). */
@@ -696,7 +696,7 @@ function bind() {
   const nav = $(".nav"); const onS = () => nav && nav.classList.toggle("scrolled", scrollY > 8); addEventListener("scroll", onS, { passive: true }); onS();
   // Reveal on scroll
   const rv = $$(".rv");
-  if (C.theme.motionStyle === "none" || matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) rv.forEach((e) => e.classList.add("in"));
+  if (C.theme.motionStyle === "none" || matchMedia("(prefers-reduced-motion: reduce)").matches || /[?&]lite=1\b/.test(location.search) || !("IntersectionObserver" in window)) rv.forEach((e) => e.classList.add("in"));
   else { const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -8% 0px" }); rv.forEach((e) => io.observe(e)); }
   const f = $("#enquiry"); if (f) f.addEventListener("submit", submit);
   bindProducts();
