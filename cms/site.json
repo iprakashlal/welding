@@ -3,11 +3,11 @@
   "name": "Ram welding",
   "version": 7,
   "admin": "admin.html",
-  "exportedAt": "2026-11-27T23:54:07.566Z",
+  "exportedAt": "2026-11-28T00:12:41.958Z",
   "generator": "Site Studio",
   "studioBuild": {
-    "id": "f5cbd74",
-    "at": "2026-11-27T23:51:55.458Z"
+    "id": "2a78dcc",
+    "at": "2026-11-27T23:55:18.244Z"
   },
   "badge": "1qt9bdp",
   "menu": {
@@ -83,5 +83,5 @@
     "studio": true
   },
   "menuV": "1dep38u",
-  "pdV": "16elvnl"
+  "pdV": "16ffwui"
 }
